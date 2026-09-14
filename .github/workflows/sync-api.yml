@@ -1,0 +1,110 @@
+name: Propose API documentation updates
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 */6 * * *'
+
+# This token belongs only to the docs repository.
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: api-documentation-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    # Enable only after approving the public contract for this public docs repo.
+    if: github.repository == 'Reap-IT-Now/docs' && github.ref == 'refs/heads/main' && vars.API_DOCS_SYNC_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check read-only source credential
+        env:
+          SOURCE_TOKEN: ${{ secrets.CONTRACTS_READ_TOKEN }}
+        run: |
+          if [ -z "$SOURCE_TOKEN" ]; then
+            echo '::error::Add CONTRACTS_READ_TOKEN to docs with Contents read-only access to reap-contracts.'
+            exit 1
+          fi
+
+      - name: Check out documentation
+        uses: actions/checkout@v4
+        with:
+          repository: Reap-IT-Now/docs
+          ref: main
+          path: docs
+          persist-credentials: false
+
+      - name: Read public API contracts
+        uses: actions/checkout@v4
+        with:
+          repository: Reap-IT-Now/reap-contracts
+          ref: main
+          path: contracts
+          token: ${{ secrets.CONTRACTS_READ_TOKEN }}
+          persist-credentials: false
+          sparse-checkout: openapi/public/v1
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Bundle public contract into temporary output
+        working-directory: docs
+        env:
+          REDOCLY_TELEMETRY: 'off'
+        run: |
+          npx --yes @redocly/cli@2.53.0 bundle \
+            ../contracts/openapi/public/v1/openapi.yaml \
+            --config .github/redocly.yaml \
+            --output "$RUNNER_TEMP/reap-public-openapi.json"
+
+      - name: Validate the bundled contract
+        working-directory: docs
+        env:
+          REDOCLY_TELEMETRY: 'off'
+        run: |
+          npx --yes @redocly/cli@2.53.0 lint \
+            "$RUNNER_TEMP/reap-public-openapi.json" \
+            --config .github/redocly.yaml
+          python3 .github/scripts/check-bundle.py "$RUNNER_TEMP/reap-public-openapi.json"
+
+      - name: Prepare changed documentation files
+        working-directory: docs
+        run: |
+          if ! cmp -s "$RUNNER_TEMP/reap-public-openapi.json" api-reference/openapi.json; then
+            mkdir -p api-reference .github/api-source
+            cp "$RUNNER_TEMP/reap-public-openapi.json" api-reference/openapi.json
+            git -C ../contracts rev-parse HEAD > .github/api-source/commit.txt
+          fi
+          test -z "$(git -C ../contracts status --porcelain)"
+
+      - name: Open documentation review
+        uses: peter-evans/create-pull-request@v7
+        with:
+          path: docs
+          token: ${{ github.token }}
+          branch: automation/public-api-sync
+          base: main
+          draft: true
+          title: 'docs: update public API reference'
+          commit-message: 'docs: update bundled public API contract'
+          add-paths: |
+            api-reference/openapi.json
+            .github/api-source/commit.txt
+          body: |
+            Updates the documentation copy of the public API contract.
+
+            The source repository was read using a separate read-only credential.
+            No files, branches, commits, settings, or workflows in engineering were changed.
+
+            Contract bundling, structural lint, and local-reference checks ran before this PR.
+            These checks do not prove that the deployed REAP API implements the contract.
+
+            Before merging, confirm customer scope and released behavior, review examples,
+            run Mintlify validation and broken-link checks, and inspect the site preview.
+            This workflow does not merge or publish its own changes.
