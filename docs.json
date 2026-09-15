@@ -81,5 +81,12 @@
         "javascript"
       ]
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/api-reference/overview",
+      "permanent": false
+    }
+  ]
 }
