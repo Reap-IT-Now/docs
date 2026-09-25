@@ -82,5 +82,12 @@
   },
   "fonts": {
     "family": "DM Sans"
-  }
+  },
+  "redirects": [
+    {
+      "source": "/quickstart",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
 }
