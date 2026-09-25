@@ -14,7 +14,7 @@ hideFooterPagination: true
 
     <div className="reap-start-actions">
       <a className="reap-primary-link" href="/getting-started/quickstart">Start the quickstart <span aria-hidden="true">→</span></a>
-      <a className="reap-text-link" href="/deployment/overview">Explore deployment guides <span aria-hidden="true">↗</span></a>
+      <a className="reap-text-link" href="/deployment/overview">Explore deployment guides <span aria-hidden="true">→</span></a>
     </div>
 
     <div className="reap-journey" aria-label="Setup journey">
@@ -30,22 +30,25 @@ hideFooterPagination: true
   </div>
 
   <Columns cols={3}>
-    <Card title="Capabilities" icon="compass" href="/capabilities/overview" cta="Explore capabilities" arrow>
+    <Card title="Capabilities" icon="compass" href="/capabilities/overview" arrow>
       Understand your network, investigate incidents, run repeatable checks, and validate changes.
+      <span className="reap-card-cta">Explore capabilities <span aria-hidden="true">→</span></span>
     </Card>
 
     <Card title="Integrations" icon="plug" href="/integrations/overview" cta="Connect your tools" arrow>
       Bring REAP into your team's incident and collaboration workflows. Start with Slack.
+      <span className="reap-card-cta">Connect your tools <span aria-hidden="true">→</span></span>
     </Card>
 
-    <Card title="Security and administration" icon="shield-halved" href="/security/data-collection-and-security" cta="Review data and security" arrow>
+    <Card title="Security and administration" icon="shield-halved" href="/security/data-collection-and-security" arrow>
       Understand data collection, find security resources, and manage access to your organization.
+      <span className="reap-card-cta">Review data and security <span aria-hidden="true">→</span></span>
     </Card>
   </Columns>
 
   <div className="reap-home-footer">
-    <a href="/whats-new"><strong>What's new</strong><span>See documentation updates <span aria-hidden="true">↗</span></span></a>
-    <a href="/support/troubleshooting"><strong>Need a hand?</strong><span>Troubleshoot setup and common issues <span aria-hidden="true">↗</span></span></a>
-    <a href="/support/contact"><strong>Talk to our team</strong><span>Get help with your REAP environment <span aria-hidden="true">↗</span></span></a>
+    <a href="/whats-new"><strong>What's new</strong><span>See documentation updates <span aria-hidden="true">→</span></span></a>
+    <a href="/support/troubleshooting"><strong>Need a hand?</strong><span>Troubleshoot setup and common issues <span aria-hidden="true">→</span></span></a>
+    <a href="/support/contact"><strong>Talk to our team</strong><span>Get help with your REAP environment <span aria-hidden="true">→</span></span></a>
   </div>
 </div>
