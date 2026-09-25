@@ -1,53 +1,44 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "name": "REAP",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#173E4F",
+    "light": "#88C3DD",
+    "dark": "#173E4F"
   },
   "favicon": "/favicon.svg",
   "navigation": {
     "pages": [
       {
-        "group": "Getting Started",
+        "group": "Documentation",
         "pages": [
-          "index",
-          "quickstart"
+          "index"
+        ]
+      },
+      {
+        "group": "Integrations",
+        "pages": [
+          "integrations/slack"
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/reap.svg",
+    "dark": "/logo/reap.svg"
   },
   "navbar": {
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@reapitnow.ai"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
+      "label": "REAP website",
+      "href": "https://reapitnow.ai"
     }
   },
   "contextual": {
@@ -55,18 +46,41 @@
       "copy",
       "view",
       "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
+      "claude"
     ]
   },
   "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
-    }
+    "links": [
+      {
+        "header": "REAP",
+        "items": [
+          {
+            "label": "Website",
+            "href": "https://reapitnow.ai"
+          },
+          {
+            "label": "Blog",
+            "href": "https://reapitnow.ai/blog"
+          }
+        ]
+      },
+      {
+        "header": "Help",
+        "items": [
+          {
+            "label": "Contact support",
+            "href": "mailto:support@reapitnow.ai"
+          }
+        ]
+      }
+    ]
+  },
+  "description": "REAP documentation for connecting integrations and working with network incidents, network questions, and runbooks.",
+  "appearance": {
+    "default": "light",
+    "strict": false
+  },
+  "fonts": {
+    "family": "DM Sans"
   }
 }
