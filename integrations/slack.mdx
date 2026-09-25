@@ -1,0 +1,175 @@
+---
+title: "REAP Slack integration guide"
+sidebarTitle: "Slack"
+description: "Connect Slack to REAP for incident notifications, network questions, ticket assignment, and runbook execution."
+keywords: ["Slack", "integration", "ServiceNow", "incidents", "runbooks", "account linking"]
+---
+
+Connect your Slack workspace to REAP to receive network incidents in a channel, discuss an incident with REAP in its thread, and ask network questions in a direct message.
+
+A REAP administrator connects the workspace and configures the incident channel. Each person who wants to interact with REAP in Slack then links their own REAP account.
+
+## Before you begin
+
+The person connecting Slack must be a **REAP administrator** and a **member of the Slack workspace** being connected. If you are not a member of that workspace, ask your Slack administrator to add you, or have someone with both types of access complete the setup.
+
+Before starting, arrange the following:
+
+- A Slack app approver, if your workspace requires approval to install apps.
+- A channel for network incidents, such as `#network-incidents`. You can use an existing channel or create one during setup.
+
+<Info>
+  For incident notifications and ticket assignment, configure the **ServiceNow integration in the same REAP organization first**. This guide describes the ServiceNow incident workflow. Ask your REAP contact for help if that connection is not yet configured.
+</Info>
+
+The person connecting Slack does not need to be a Slack administrator. A separate Slack app approver can approve the installation, and the person who started the setup then completes it in REAP. Each person uses their own account.
+
+## Connect your workspace
+
+1. Sign in to REAP and open the organization you want to connect.
+2. Open **Integrations** and select **Connect Slack**.
+3. Sign in to Slack if prompted, then select the workspace you want to connect.
+4. Review the permissions requested by REAP.
+
+If Slack shows **Allow**, select it. When Slack returns you to REAP, confirm that the connection shows **Connected**. Then continue to [Set up the incident channel](#set-up-the-incident-channel).
+
+### If Slack requires approval
+
+1. Select **Request approval** or **Request to install**, depending on the option Slack displays.
+2. Return to your original REAP tab and open **Integrations**. The connection shows **Waiting for approval**.
+3. Wait for approval. Slack sends the request to the approvers configured for your workspace. They review it in Slack, from the notification or the app management area.
+4. Once the request is approved, return to REAP and select **Continue setup** on the Slack connection.
+5. Select the same Slack workspace, review the permissions, and select **Allow**.
+6. Confirm that REAP shows **Connected**.
+
+<Note>
+  Approval does not finish the connection. The person who started the setup must select **Continue setup** in REAP, then **Allow** in Slack.
+</Note>
+
+Slack may leave you on an app management or confirmation page after you submit the request. Return to REAP manually if this happens. Notifications depend on your workspace settings, so check with your app approver if you have not received an update. See [Slack's app approval documentation](https://slack.com/help/articles/222386767-Manage-app-approval-for-your-workspace) for details.
+
+Use Slack's request process to obtain approval. Do not forward the authorization link from your browser to the app approver.
+
+## Set up the incident channel
+
+A **target** is a saved destination for incident notifications. For Slack, it identifies the workspace connection and channel REAP should use. This guide covers delivery to one channel.
+
+### Add REAP to the channel
+
+Choose a channel whose members should be able to read the incident information. Anyone with access to the channel can read messages posted there, even if they have not linked a REAP account.
+
+1. In Slack, open the channel you want to use, or create one for network incidents.
+2. In the channel's message box, type `/invite`, choose the REAP app, and send the invitation.
+3. Confirm that REAP has joined the channel.
+4. Open the channel details by selecting the channel name, then copy the **Channel ID**.
+
+### Create the target in REAP
+
+1. Return to the Slack integration in REAP and open **Targets**.
+2. Create a target and give it a descriptive name, such as **Network incidents**.
+3. Select the Slack connection you just created.
+4. Paste the channel ID into the channel ID field and save the target.
+
+The target name is a label in REAP. It does not need to match the Slack channel name. Use the channel ID, rather than the channel name, to identify the destination. REAP fills in the workspace connection details when you authorize the app.
+
+If your organization needs help setting up incident delivery to this target, contact your REAP representative.
+
+## Link your REAP account
+
+Each person who wants to ask REAP questions or use incident actions in Slack must link their own REAP account. This includes the administrator who connected the workspace. If you do not have access to the connected REAP organization, ask your REAP administrator to provide it before continuing.
+
+1. Open the REAP app in Slack and use its account linking option.
+2. Follow the instructions to link your Slack account to your own account in the connected REAP organization.
+3. Complete the account linking process, then return to Slack.
+
+If you cannot find the account linking option or cannot complete the process, contact your REAP representative.
+
+## Check the setup
+
+Check that REAP can answer a direct message and receive an incident from ServiceNow.
+
+1. Send `List all devices in my organization` as a direct message to the REAP app in Slack. Check that the listed devices belong to the REAP organization you connected.
+2. Create a test network incident in the ServiceNow instance connected to REAP, or ask your ServiceNow administrator to create one. Include the affected device or interface and a clear description of the issue.
+3. Confirm that the incident appears in both the connected REAP organization and the Slack channel you configured.
+4. Open the incident's thread and send `@REAP Summarize this incident`.
+5. Confirm that REAP replies in the thread. Select **REAP** on the incident card and check that it opens the corresponding incident in REAP.
+
+If a check fails, use the [troubleshooting steps](#troubleshooting) to identify which part of the setup needs attention.
+
+## Use REAP in Slack
+
+### Ask a network question
+
+Open a direct message with the REAP app and type your question. You can start a conversation without an incident. For example:
+
+```text
+List all devices in my organization
+```
+
+Use the device and site names recorded in REAP when asking about a specific part of your network. Responses depend on the information available in your REAP organization.
+
+### Work on an incident
+
+Each incident delivered to the channel is posted as a card with its own Slack thread. The card includes the ticket ID, priority, status, assignment, and description, along with REAP's investigation status.
+
+Reply in that incident's thread and mention `@REAP` whenever you want a response. For example:
+
+```text
+@REAP Summarize this incident
+```
+
+Keep follow-up questions in the same incident thread. To open the incident and its conversation in REAP, select **REAP** on the card.
+
+### Assign an incident
+
+Assigning an incident from Slack updates the assignee on the ServiceNow ticket. The person you select must have an account in the connected ServiceNow instance.
+
+The selection list shows Slack users. Someone can appear in that list without having a ServiceNow account. If REAP cannot find them in ServiceNow, it cannot update the assignment.
+
+1. Select **Assign** on the incident card.
+2. Choose the person who should be assigned the incident.
+3. Check for confirmation that the assignment was updated, then verify the assignee on the ServiceNow ticket.
+
+### Run a runbook
+
+Use **Run runbook** on an incident card to run a runbook available in the connected REAP organization.
+
+1. Select **Run runbook**.
+2. Choose the runbook you want to run.
+3. Select the device on which to run it and enter the required inputs.
+4. Review your selections and follow the prompts to start the runbook.
+5. Review the execution result in the **same Slack incident thread**.
+
+If the runbook you need is missing, ask your REAP administrator to check that it is available in the connected organization.
+
+Check the result to see whether execution succeeded. If no result appears in the thread, contact your REAP representative with the incident ID and runbook name.
+
+## Troubleshooting
+
+### REAP still shows Waiting for approval
+
+Check with your Slack app approver whether the request has been approved. After approval, select **Continue setup** in REAP and **Allow** in Slack. The connection shows **Connected** after you complete this step.
+
+### Slack asks for approval again
+
+Check that you selected the same workspace for which REAP was approved. Ask your app approver to confirm the request's status in Slack. If Slack does not offer a request option, ask them to check the workspace's app installation policy.
+
+### The connection is active but incidents are missing
+
+First, check whether the incident appears in REAP. If it does not, ask your ServiceNow administrator or REAP representative to check that the ServiceNow integration is sending it to the correct REAP organization.
+
+If the incident appears in REAP but not Slack, check that REAP has joined the channel and that the saved target uses the correct Slack connection and channel ID. If it still does not arrive, ask your REAP representative to check incident delivery to that target.
+
+### REAP does not answer a message
+
+Confirm that you have linked your own REAP account. In an incident thread, include `@REAP` in your message and check that the app is still a member of the channel. For a general network question, try a direct message to the REAP app.
+
+If the workspace connection was recreated, check your individual account link and complete linking again if requested. If responses refer to the wrong organization, ask your REAP administrator to check the workspace connection and your account link before continuing.
+
+### An assignment returns ServiceNow user not found
+
+Ask your ServiceNow administrator to confirm that the selected person has an account in the connected ServiceNow instance. Then retry the assignment and check for confirmation.
+
+### You need help completing setup
+
+Contact your REAP representative or email [support@reapitnow.ai](mailto:support@reapitnow.ai). Include your REAP organization name.
