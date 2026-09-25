@@ -54,3 +54,23 @@ The public main branch remains the previously published Slack documentation unti
 - Official Mintlify page, navigation, and component documentation.
 
 No files in REAP engineering repositories were modified.
+
+## Audit corrections
+
+- Landing cards now have one interactive link, without a button nested inside the anchor.
+- Integration cards identify the three draft guides before a reader opens them.
+- Slack prerequisite and troubleshooting links point to the relevant sections.
+- Runbooks includes authoring, template review, publishing, and controlled initial execution, grounded in the UI source.
+- Change Management explicitly covers unchanged conditions, incomplete checks, and preservation of pre-change evidence.
+- The preview has a visible review banner. Its pages are not a replacement for the live documentation.
+- Starter README content has been replaced with REAP-specific editing and publishing guidance.
+
+## Remaining acceptance evidence
+
+- Run the quickstart against a supported customer deployment; a rendered guide is not evidence that deployment steps work.
+- Verify Slack installation, routing, individual linking, ticket assignment, and runbook results end to end. The supplied Word guide is the content source, not a substitute for a live integration test.
+- Add verified screenshots where they resolve ambiguous UI steps.
+- Validate narrow-screen navigation and layouts on actual target devices.
+- Establish the custom documentation domain separately; this work does not configure docs.reapitnow.ai.
+- Treat the security page as an entry point to published policies, not a field-level collection matrix. Confirm data categories, destinations, retention/deletion, residency, and AI processing/subprocessor details before making deployment-specific claims.
+- On production promotion, remove the review banner, update the review-edition note in What's new, and exclude any unpublished drafts from both navigation and the production build.

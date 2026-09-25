@@ -37,3 +37,7 @@
  .reap-journey { grid-template-columns:1fr; gap:6px; }
  .reap-home-footer { grid-template-columns:1fr; gap:17px; }
 }
+
+/* A card is one link; the visual action is not a nested button. */
+.reap-home .reap-card-cta { display:block; margin-top:16px; color:#255f76; font-size:12px; font-weight:650; line-height:1.6; }
+.dark .reap-home .reap-card-cta { color:#a7d6e6; }
