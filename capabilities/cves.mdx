@@ -1,39 +1,55 @@
 ---
 title: "CVEs"
-description: "Review vulnerability assessments in the context of your devices."
-keywords: ["CVE analysis","vulnerability","exposure","security assessment"]
+description: "Understand vulnerability exposure using device versions, configuration evidence, and assessment history."
+keywords:
+  - "CVE analysis"
+  - "vulnerability"
+  - "exposure"
+  - "security assessment"
 tag: "Draft"
 noindex: true
 ---
 
+A CVE identifies a publicly disclosed vulnerability. REAP's CVE assessments help you understand how known vulnerabilities relate to the devices in your network.
+
+REAP evaluates available device vendor, product, and software-version information against its vulnerability signatures. When a signature includes configuration conditions, the assessment also checks the collected configuration. This adds device-specific context to a vulnerability review and helps your team focus on the exposures that need investigation.
+
+## What you can do
+
+- **Find relevant assessments.** Review findings by CVE, device, site, severity, or assessment status.
+- **Understand the reasoning.** Inspect the assessment's justification and any configuration evidence showing why it was classified.
+- **Prepare the next action.** Review available patch guidance, mitigation suggestions, and operational-impact information.
+- **Review a point in time.** Use current or historical time selections to examine the assessments available for that period.
+
+The page is called **Vulnerability Assessments** and is reached through **CVEs** in the navigation.
+
+## Example: review a configuration-dependent exposure
+
+A vulnerability may apply to a software release only when a particular service or feature is enabled. Where the CVE signature describes that condition, REAP checks the available configuration and includes the reasoning in the assessment.
+
+Your team can inspect that evidence before choosing a patch or mitigation. This helps separate a version match from a finding supported by the relevant configuration condition.
+
+## How to review CVEs
+
 <Note>
-  **Draft guide.** This page is prepared for product review. Confirm the workflow against your deployed REAP version before publishing it to customers.
+  **Draft guide.** The functionality is grounded in the product source. Validate these steps against your deployed REAP version before publishing this guide to customers.
 </Note>
 
-Open **CVEs** in the navigation to reach **Vulnerability Assessments**. Use the available device and CVE context to investigate an exposure.
-
-## Before you begin
-
-Confirm that the relevant devices and identifying information are available in [Inventory](/capabilities/inventory-and-topology).
-
-## Review an assessment
+Confirm that the relevant devices, software versions, and required configuration data have been collected.
 
 1. Open **CVEs**.
-2. Find the relevant CVE or device.
-3. Open an assessment and review its device and site context.
-4. Check the evidence and the assessment's time context.
-5. Confirm applicability and decide the next operational step with the responsible team.
+2. Choose the current or historical time context and find the relevant CVE, device, or site.
+3. Open an assessment. Confirm the device, severity, status, and assessment time.
+4. Read **Evaluation Justification** and any configuration evidence.
+5. Review **Remediation Action** and **Operational Impact Statement** when available.
+6. Verify the proposed action for your device and environment, then plan the remediation through your change process.
 
 ## Understand the result
 
-An assessment is most useful when you can connect it to the affected device and the available evidence. Missing inventory or configuration information can limit what you can conclude.
+**EXPOSED** means the assessment matched the signature's applicable conditions using the available inputs. **AUDITED SAFE** is the UI label for an assessment that did not match those conditions. It describes that CVE assessment, not a guarantee that the device has no vulnerabilities.
 
-The page provides current and historical time selections. Verify the selected time before comparing an assessment with a change or incident.
+Check the software version, configuration completeness, assessment time, and justification before deciding what to do. Missing assessments or missing data do not establish that a device is safe. Remediation suggestions require review against the applicable vendor advisory and your operational requirements.
 
-## Next steps
+## Related guides
 
-Use [Change Management](/capabilities/change-management) to plan validation for a remediation change, or inspect [Running config](/capabilities/configuration-history) for the collected device configuration.
-
-## Review before publication
-
-Confirm data prerequisites, assessment status definitions, evidence fields, update timing, historical behavior, and a tested example. Do not imply an unsupported guarantee about completeness or remediation.
+[Running config](/capabilities/configuration-history) · [Change Management](/capabilities/change-management) · [Inventory and topology](/capabilities/inventory-and-topology)

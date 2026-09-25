@@ -1,26 +1,28 @@
 ---
 title: "Capabilities"
-description: "Choose the workflow that matches the question you need to answer."
+description: "Understand what each capability does and choose the next step for your network."
 ---
 
-Start with the network context you have, then move into the investigation or operational workflow you need.
+REAP helps you understand your network, investigate questions, and make operational work repeatable. Each capability guide starts with what the feature does and how it helps, followed by instructions for using it.
 
-| Your goal | Guide | Where to find it in REAP |
+| What you need to do | Capability | How it helps |
 | --- | --- | --- |
-| Understand devices and their relationships | [Inventory and topology](/capabilities/inventory-and-topology) | **Inventory** and **Topology v2** |
-| Ask a question about your network | [Chat](/capabilities/chat) | **Chat** |
-| Review an incident and its context | [Incidents](/capabilities/incidents) | **Incidents** |
-| Repeat an operational procedure | [Runbooks](/capabilities/runbooks) | **Runbooks** |
-| Validate a change before and after implementation | [Change Management](/capabilities/change-management) | **Change Management** |
-| Investigate vulnerability exposure | [CVEs](/capabilities/cves) | **CVEs** |
-| Inspect collected configuration changes | [Running config](/capabilities/configuration-history) | **Inventory** → **Running config** |
+| Understand what is in the network | [Inventory and topology](/capabilities/inventory-and-topology) | Find devices and explore the relationships and context available around them. |
+| Ask a network question | [Chat](/capabilities/chat) | Use natural language to explore network data, gather supported evidence, and ask follow-up questions. |
+| Investigate an incident | [Incidents](/capabilities/incidents) | Bring incident context, available evidence, ownership, and linked tickets together. |
+| Repeat a procedure consistently | [Runbooks](/capabilities/runbooks) | Create a procedure once and reuse the saved version across supported devices and vendors. |
+| Validate a network change | [Change Management](/capabilities/change-management) | Turn a proposed change into a plan, capture before-and-after evidence, and assess the result. |
+| Review vulnerability exposure | [CVEs](/capabilities/cves) | Connect vulnerability signatures to device versions and relevant configuration evidence. |
+| Understand configuration changes | [Running config](/capabilities/configuration-history) | Inspect timestamped snapshots and compare what changed. |
 
-## Start with a question
+## Choose a starting point
 
-If your network is already connected, open [Chat](/capabilities/chat) and ask about a known site or device. Include the scope and what you want to understand, then inspect the evidence behind the response.
+If you are new to REAP, follow the [quickstart](/getting-started/quickstart) to connect a site and ask your first network question.
 
-If you have not connected a site yet, follow the [quickstart](/getting-started/quickstart).
+If your network is already connected, start with [Chat](/capabilities/chat) and a question about a known site or device. Use [Inventory and topology](/capabilities/inventory-and-topology) when you need to establish the scope first.
+
+For repeatable work, capture the procedure in a [runbook](/capabilities/runbooks). For an upcoming change, use [Change Management](/capabilities/change-management) to plan the evidence you need before implementation.
 
 ## Work from Slack
 
-Use the [Slack integration](/integrations/slack) to ask network questions and work with supported incident and runbook flows in your team's workspace.
+The [Slack integration](/integrations/slack) brings supported network questions, incident actions, and runbook interactions into your team's workspace. Its ServiceNow incident workflow requires a configured ServiceNow integration.

@@ -1,30 +1,45 @@
 ---
 title: "Inventory and topology"
-description: "Find devices and explore the network context around them."
+description: "See what is in your network and how discovered devices relate to one another."
 tag: "Draft"
 noindex: true
 ---
 
+Inventory and topology give you the context for understanding your network. Inventory brings discovered device records into one place. Topology shows the nodes and relationships available for a selected network scope.
+
+Together, they help you move from “Which device is this?” to “What is around it?” You can identify a device, inspect its available details, and use a network view to choose the next part of an investigation. This helps your team establish scope before asking a question, reviewing an incident, or planning a change.
+
+## What you can do
+
+- **Find a device across your organization.** Search by name, vendor, model, or IP address and confirm the device's identity and site.
+- **Build context from its record.** Inspect available ports, attached endpoints, collected configuration, and vulnerability assessments.
+- **Explore network relationships.** Use system or saved topology views and their available layers to examine the network context relevant to your question.
+- **Keep scope and time explicit.** Check the selected organization or site and the view's time context before relating what you see to an incident or change.
+
+Inventory and topology reflect the discovery and collection data available to REAP. Their usefulness depends on that coverage and when the information was collected.
+
+## Example: investigate around a device
+
+Suppose a team reports a problem involving a branch switch. Find the switch in Inventory, confirm its site and management address, and inspect its available port and endpoint details. Then open the relevant topology view to examine the surrounding relationships.
+
+You now have a clearer scope for a [Chat question](/capabilities/chat) and a way to identify where more evidence is needed.
+
+## How to use Inventory and topology
+
 <Note>
-  **Draft guide.** This page is prepared for product review. Confirm the workflow against your deployed REAP version before publishing it to customers.
+  **Draft guide.** The functionality is grounded in the product source. Validate these steps against your deployed REAP version before publishing this guide to customers.
 </Note>
 
-Use **Inventory** for device records and **Topology v2** for network views. Together, they help establish the scope of an investigation.
+Complete [site discovery](/deployment/sites-and-discovery) and verify that an expected device appears.
 
-## Before you begin
-
-Complete [site discovery](/deployment/sites-and-discovery) and verify at least one expected device.
-
-## Find a device
+### Find and inspect a device
 
 1. Open **Inventory**.
 2. Search by name, vendor, model, or IP address.
 3. Open the device record and check its identity, site, and management address.
-4. Review the available details for the question you are investigating.
+4. Review the details available for your question. Follow the configuration or assessment links when you need the underlying context.
 
-The device view can provide links to collected configuration and other available evidence. The information present depends on what has been discovered and collected.
-
-## Explore a network view
+### Explore a network view
 
 1. Open **Topology v2**.
 2. Choose the appropriate system or saved view.
@@ -32,14 +47,10 @@ The device view can provide links to collected configuration and other available
 4. Inspect the relevant nodes, relationships, and layers.
 5. Check the view's time context before comparing it with an incident or change.
 
-## What to verify
+## Understand the result
 
-You can locate the expected device and distinguish the scope and time of the view you are using. Treat a missing relationship as a reason to inspect discovery and collection coverage before drawing a conclusion.
+Confirm that you are looking at the intended device and network scope. A missing device or relationship can indicate a discovery or collection gap; inspect coverage before treating absence from a view as proof that it does not exist.
 
-## Next steps
+## Related guides
 
-[Ask a question in Chat](/capabilities/chat) or [inspect configuration history](/capabilities/configuration-history).
-
-## Review before publication
-
-Confirm the customer-facing topology version label, default views, scope selectors, data freshness indicators, and supported relationship types.
+[Chat](/capabilities/chat) · [Incidents](/capabilities/incidents) · [Running config](/capabilities/configuration-history)

@@ -1,52 +1,69 @@
 ---
 title: "Chat"
-description: "Ask REAP a network question and inspect the evidence behind the answer."
-keywords: ["Ask REAP","network questions","AI investigation","chat"]
+description: "Ask questions about your network in natural language and explore the evidence behind the answers."
+keywords:
+  - "Ask REAP"
+  - "network questions"
+  - "AI investigation"
+  - "chat"
 tag: "Draft"
 noindex: true
 ---
 
+Chat lets you ask questions about your network in natural language, as you would in a conversation with an AI assistant. Describe what you want to understand, name the site or devices involved, and ask follow-up questions as the investigation develops.
+
+REAP connects the conversation to the network information and tools available in your organization. It can look up context, collect supported device evidence, and summarize findings. This gives your team a starting point for an investigation without first assembling the answer across multiple device screens.
+
+## What you can do
+
+- **Understand your network.** Ask about discovered devices, a site, or the relationships available in your topology.
+- **Investigate a specific question.** Describe the observed behavior and relevant time period. REAP can ask for missing details and gather evidence for supported checks.
+- **Build on an answer.** Continue in the same conversation to narrow the scope, examine a finding, or ask for the evidence behind a conclusion.
+- **Inspect the outputs.** Review the response and any supporting tables, reports, topology views, or collected evidence produced by the request.
+
+An answer depends on the available data, device access, and supported operations. A response that identifies missing evidence gives you a useful next step for the investigation.
+
+## Example: start broad, then focus
+
+Start with a question such as:
+
+> Which devices have been discovered at the London site?
+
+Then narrow the investigation:
+
+> For edge-router-1, check interface status and show the evidence for any interfaces that are administratively enabled but operationally down.
+
+These are example prompts; replace the site and device names with names from your organization. When timing matters, state the time window and ask when the supporting data was collected.
+
+## How to use Chat
+
 <Note>
-  **Draft guide.** This page is prepared for product review. Confirm the workflow against your deployed REAP version before publishing it to customers.
+  **Draft guide.** The functionality is grounded in the product source. Validate these steps against your deployed REAP version before publishing this guide to customers.
 </Note>
-
-Open **Chat** to start a network conversation. A useful question identifies the site or devices, the behavior you care about, and the time period when it matters.
-
-## Before you begin
 
 Confirm that the relevant devices have been [discovered](/deployment/sites-and-discovery) and that you are in the correct organization.
 
 <Steps>
   <Step title="Start a conversation">
-    Open **Chat** and create a thread. Enter a focused first question.
+    Open **Chat** and create a thread. Enter the question you want answered.
   </Step>
-  <Step title="Give the question a scope">
-    Include recognizable site or device names. For example:
-
-    > For the London site, summarize the discovered devices and show the available evidence for your answer.
-
-    Replace the example site with one in your organization.
+  <Step title="Clarify the scope">
+    Include recognizable site or device names. Answer any follow-up question REAP asks to resolve the target or missing inputs.
   </Step>
-  <Step title="Inspect the response">
-    Review the answer, reported progress, and any generated artifacts or supporting evidence. Check the relevant scope and time.
+  <Step title="Review the answer and evidence">
+    Inspect the response, progress, and any generated outputs. Check which devices and time period the evidence covers.
   </Step>
-  <Step title="Ask a follow-up">
-    Narrow an unclear answer with a specific device, relationship, or time window. Ask which evidence supports the conclusion and where information is missing.
+  <Step title="Continue the investigation">
+    Ask a focused follow-up. You can request the basis for a conclusion, narrow the device scope, or ask what information is still missing.
   </Step>
 </Steps>
 
-## What success looks like
+## Understand the result
 
-The response addresses the intended network scope, and you can identify the evidence behind it. An answer that reports missing data can also be useful: use it to identify the next collection or discovery check.
+A useful answer addresses the intended scope and lets you trace the conclusion to its evidence. Distinguish observed facts from explanations that still need verification.
 
-## Troubleshooting
-
-If the expected device is missing, check Inventory and discovery results. If a run fails, retain the run or thread identifier and the time of the failure for [support](/support/contact).
+If an expected device is missing, check Inventory and discovery results. If a request fails, retain the thread or run identifier and failure time for [support](/support/contact).
 
 ## Related guides
 
-[Inventory and topology](/capabilities/inventory-and-topology) · [Slack](/integrations/slack) · [Incidents](/capabilities/incidents)
-
-## Review before publication
-
-Validate the thread-creation flow, the exact response and evidence controls, and a reproducible example in a customer-like environment.
+[Inventory and topology](/capabilities/inventory-and-topology) · [Runbooks](/capabilities/runbooks) · [Chat from Slack](/integrations/slack)
