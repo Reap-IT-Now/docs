@@ -168,7 +168,7 @@
     "prompt": "Search REAP documentation..."
   },
   "banner": {
-    "content": "Review preview: pages marked Draft need product validation. [View published documentation](https://reap-731233b9.mintlify.io/).",
+    "content": "Documentation review preview. Guides marked Draft need product validation. [View published documentation](https://reap-731233b9.mintlify.io/).",
     "dismissible": false,
     "type": "info"
   }
