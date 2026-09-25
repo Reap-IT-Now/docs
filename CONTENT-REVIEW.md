@@ -103,3 +103,25 @@ Before publication, test one complete workflow per capability against the custom
 7. Running config: verify collection prerequisites, snapshot retention, selection, export, and startup-drift support on an applicable device.
 
 Content verification: all eight saved capability MDX bodies match the prepared copy; 40 internal links resolve to existing documentation pages; native component tags are balanced; Mintlify deployment for `f2a17021034374ffa3450f1573fffcd7f097d55e` succeeded.
+
+## Follow-up flaw audit — September 25, 2026
+
+Reviewed all 26 current documentation pages and checked the detailed workflows against reap-ui commit `6003a55ce3054f7e88707d72b33c0643e20b7ba2`.
+
+Corrected verified issues:
+- Runbooks previously skipped **Use runbook**, **Review**, and **Start execution**. Selecting a library item's name opens its detail page and does not expose the launch panel. The guide now gives the complete launch sequence and the actual **Create runbook** entry control.
+- Scheduled execution previously omitted the schedule name, cadence, timezone, review, and **Create schedule** submission. The guide now distinguishes an active schedule from a paused schedule, explains the pinned version, and notes skipped overlapping and missed occurrences.
+- Runbook execution approval was placed before launch. The source presents pending approval in an execution's **Waiting for approval** state. The guide now places review and **Approve change** / **Reject change** at that stage.
+- Publishing was described as the action that makes a version executable. The current launch UI accepts eligible ready or published versions; the wording now reflects that distinction.
+- Chat now identifies **Create thread** and **Send message**. Change Management identifies **New change**, **Approve plan**, **Run pre-checks**, and **Run post-checks**, and explains Ready, Attention, Blocked, and Inconclusive readiness.
+
+Verification:
+- All 93 internal page and section links across 26 pages resolve to existing targets; native component tags are balanced.
+- Saved Runbooks and Change Management bodies match the prepared copy. Chat's only serialization difference is Mintlify escaping the plus sign, which renders as the intended + control.
+- Mintlify deployment for `3b4bd6a084e8244220046a12ee22ccc939a32432` succeeded.
+- Slack guide and production main were not changed by this audit.
+
+Outstanding publication blockers:
+- Requirements and deployment guides still need supported runtimes, sizing, exact firewall destinations/ports, installation commands, credential assignment behavior, and a tested setup sequence.
+- ServiceNow, Teams, and NetBox remain incomplete draft setup guides. They are not self-service installation instructions.
+- Product workflows have been checked against source, not executed against customer devices. End-to-end validation remains required before removing draft status.
