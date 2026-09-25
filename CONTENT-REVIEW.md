@@ -29,7 +29,7 @@ This branch contains the complete documentation structure and a designed landing
 - `integrations/netbox.mdx`: NetBox.
 - `security/users-and-permissions.mdx`: Users and permissions.
 
-Each draft is tagged Draft, is noindex, and contains its remaining validation requirements. These metadata settings are not access control. Keep this branch as a review preview until the procedures are ready.
+Each draft is tagged Draft, is noindex, and contains a visible review note. Remaining validation requirements are tracked below. These metadata settings are not access control. Keep this branch as a review preview until the procedures are ready.
 
 ## Validation needed
 
@@ -74,3 +74,32 @@ No files in REAP engineering repositories were modified.
 - Establish the custom documentation domain separately; this work does not configure docs.reapitnow.ai.
 - Treat the security page as an entry point to published policies, not a field-level collection matrix. Confirm data categories, destinations, retention/deletion, residency, and AI processing/subprocessor details before making deployment-specific claims.
 - On production promotion, remove the review banner, update the review-edition note in What's new, and exclude any unpublished drafts from both navigation and the production build.
+
+## Capability content review — September 25, 2026
+
+All seven capability pages now lead with functionality and customer value, then a practical example, then usage instructions. The overview maps customer goals to each capability. Examples are illustrative prompts and scenarios, not claimed live test results.
+
+Source references (read only):
+- UI source: Reap-IT-Now/reap-ui at `21c80f34ab09643b6b0ee07a8092f47f38c35cf7`. Reviewed InventoryPage, TopologyV2Page, ChatAgentsPage, UnifiedIncidentsPage, UnifiedIncidentPage, RunbookNewPage, ChangeManagementPage, CVEGlobalSummaryPage, and DeviceRunningConfigPage.
+- Runbooks: Reap-IT-Now/agent-core at `f4183efe86c1c16905bcbdf34efe1a6066a1f575`, network_runbook_executor README, compiler operation-contract prompt, saved-runbook invocation path, and deviceagent README. Saved procedure reuse separates semantic operations from vendor syntax; per-invocation planning and capability checks still occur.
+- Change Management: same agent-core commit, network_change_management README. Plan review, explicit approval, pre-change readiness, user-triggered pre/post capture, comparison, and persisted report are implemented. Configuration push is outside this workflow.
+- CVEs: Reap-IT-Now/cve-db, `main.go` evaluation logic (source search resolved commit `18dd90c347d6afd701ac96ed7077dd5523a01940`). Version checks and conditional configuration-trigger evaluation support the wording. The UI's AUDITED SAFE label is scoped to an individual assessment, not general device security.
+
+Claims and limits preserved:
+- Runbooks: reuse across supported devices and vendors, conditional on the required operations. No universal device-support promise. Instructions tied to devices or vendor commands require portability review.
+- Chat: natural-language questions, scope clarification, evidence gathering for supported checks, and follow-up. No guarantee of a complete answer when inputs or access are missing.
+- Change Management: plan and evidence collection, not automatic implementation. The report is limited to approved checks. Original pre-change evidence must be preserved.
+- Incidents: available evidence varies by source. Slack's ServiceNow workflow dependency remains explicit.
+- CVEs: signature and input coverage limit the result; remediation guidance requires review for the specific environment.
+- Running config: collected snapshots, not a promise of continuously current configuration; differences do not establish causation.
+
+Before publication, test one complete workflow per capability against the customer-deployed release:
+1. Runbooks: compile a parameterized procedure, publish, execute on representative supported vendors, inspect outputs, and verify scheduling and approval behavior.
+2. Chat: reproduce the example questions and verify scope resolution, evidence controls, and follow-up.
+3. Change Management: complete a supported pre/post validation with explicit plan approval, readiness review, an implementation outside REAP, and persisted report.
+4. Inventory/topology: verify labels, default views, layers, scope selectors, freshness, and discovery coverage.
+5. Incidents: verify source-specific details, ownership, permissions, state transitions, and linked-ticket behavior.
+6. CVEs: verify prerequisites, status mapping, justification, assessment time/history, and one configuration-dependent result.
+7. Running config: verify collection prerequisites, snapshot retention, selection, export, and startup-drift support on an applicable device.
+
+Content verification: all eight saved capability MDX bodies match the prepared copy; 40 internal links resolve to existing documentation pages; native component tags are balanced; Mintlify deployment for `f2a17021034374ffa3450f1573fffcd7f097d55e` succeeded.
