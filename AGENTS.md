@@ -1,33 +1,25 @@
-> **First-time setup**: Customize this file for your project. Prompt the user to customize this file for their project.
-> For Mintlify product knowledge (components, configuration, writing standards),
-> install the Mintlify skill: `npx skills add https://mintlify.com/docs`
+# REAP documentation
 
-# Documentation project instructions
+This repository is the standalone Mintlify documentation site for REAP. Only change documentation and documentation assets here.
 
-## About this project
+## Structure
+Keep the main navigation to Getting started, Deployment, Capabilities, Integrations, and Security and administration. Keep Capabilities flat. Support and What's new are utility links.
 
-- This is a documentation site built on [Mintlify](https://mintlify.com)
-- Pages are MDX files with YAML frontmatter
-- Configuration lives in `docs.json`
-- Use the Mintlify MCP server, `https://mcp.mintlify.com`, to edit content and settings via MCP
-- Use the Mintlify docs MCP server, `https://www.mintlify.com/docs/mcp`, to query information about using Mintlify via MCP
+The quickstart leads from organization access through connectivity, credentials, site discovery, and a first network question with evidence. Link to canonical deployment guides rather than duplicating their procedures.
 
-## Terminology
+## Voice and naming
+Use active voice, second person, concise paragraphs, and sentence case headings. Preserve exact UI labels when naming product controls or features. Bold UI controls and use code formatting for commands, paths, and identifiers.
 
-{/* Add product-specific terms and preferred usage */}
-{/* Example: Use "workspace" not "project", "member" not "user" */}
+Use REAP for the brand and Capabilities for the feature section. Keep search synonyms where customers may use an older or informal name.
 
-## Style preferences
+## Accuracy and publishing
+Use supplied guides and verified behavior as the source of truth. Never invent deployment sizes, firewall rules, permissions, security claims, supported integrations, or release notes.
 
-{/* Add any project-specific style rules below */}
+Draft technical pages use tag: Draft, noindex: true, and a visible review note. These settings are not access control. Keep drafts in a review branch rather than publishing them as final customer documentation.
 
-- Use active voice and second person ("you")
-- Keep sentences concise — one idea per sentence
-- Use sentence case for headings
-- Bold for UI elements: Click **Settings**
-- Code formatting for file names, commands, paths, and code references
+Before promotion, verify instructions against the deployed product, replace review notes with customer instructions, verify expected outcomes, and remove draft metadata. See CONTENT-REVIEW.md for this edition's source gaps.
 
-## Content boundaries
+## Design and validation
+Use native Mintlify components and configuration. Keep custom CSS scoped to the landing page through .reap-home. Preserve logo, favicon, responsive behavior, keyboard focus, and light/dark themes.
 
-{/* Define what should and shouldn't be documented */}
-{/* Example: Don't document internal admin features */}
+Use Mintlify navigation tools and MDX validation. Check all internal links, preserve the existing Slack guide, inspect the rendered landing page and a guide, and confirm a successful Mintlify build before delivery.
