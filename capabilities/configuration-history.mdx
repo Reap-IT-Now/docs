@@ -1,0 +1,49 @@
+---
+title: "Running config"
+description: "Inspect collected configuration snapshots and compare changes over time."
+sidebarTitle: "Running config"
+keywords: ["configuration history","configuration drift","config diff","snapshots"]
+tag: "Draft"
+noindex: true
+---
+
+<Note>
+  **Draft guide.** This page is prepared for product review. Confirm the workflow against your deployed REAP version before publishing it to customers.
+</Note>
+
+Open a device's **Running config** from **Inventory** to review its collected configuration and change history.
+
+## Before you begin
+
+Find the intended device and confirm that configuration data has been collected for it.
+
+## Inspect and compare
+
+<Steps>
+  <Step title="Open the device configuration">
+    Find the device in **Inventory** and select **Open running config**.
+  </Step>
+  <Step title="Review the current context">
+    Check the device identity, collection time, and **Current Running Config Summary**.
+  </Step>
+  <Step title="Inspect a snapshot">
+    Use **Change history** to find a collected version and **View snapshot** to inspect it.
+  </Step>
+  <Step title="Compare versions">
+    Review **Diff Between Snapshots** for the selected versions. Confirm their collection times before relating a difference to an incident or change.
+  </Step>
+</Steps>
+
+## What to verify
+
+A difference shows a change between the collected snapshots. Use the collection times and supporting operational evidence to determine whether it relates to the event you are investigating.
+
+If a snapshot is missing, check collection availability before assuming that no configuration change occurred.
+
+## Related guides
+
+[Change Management](/capabilities/change-management) · [CVEs](/capabilities/cves) · [Incidents](/capabilities/incidents)
+
+## Review before publication
+
+Confirm collection prerequisites, retention behavior, snapshot selection controls, startup-versus-running comparison support, and export behavior.

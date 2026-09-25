@@ -1,0 +1,52 @@
+---
+title: "Chat"
+description: "Ask REAP a network question and inspect the evidence behind the answer."
+keywords: ["Ask REAP","network questions","AI investigation","chat"]
+tag: "Draft"
+noindex: true
+---
+
+<Note>
+  **Draft guide.** This page is prepared for product review. Confirm the workflow against your deployed REAP version before publishing it to customers.
+</Note>
+
+Open **Chat** to start a network conversation. A useful question identifies the site or devices, the behavior you care about, and the time period when it matters.
+
+## Before you begin
+
+Confirm that the relevant devices have been [discovered](/deployment/sites-and-discovery) and that you are in the correct organization.
+
+<Steps>
+  <Step title="Start a conversation">
+    Open **Chat** and create a thread. Enter a focused first question.
+  </Step>
+  <Step title="Give the question a scope">
+    Include recognizable site or device names. For example:
+
+    > For the London site, summarize the discovered devices and show the available evidence for your answer.
+
+    Replace the example site with one in your organization.
+  </Step>
+  <Step title="Inspect the response">
+    Review the answer, reported progress, and any generated artifacts or supporting evidence. Check the relevant scope and time.
+  </Step>
+  <Step title="Ask a follow-up">
+    Narrow an unclear answer with a specific device, relationship, or time window. Ask which evidence supports the conclusion and where information is missing.
+  </Step>
+</Steps>
+
+## What success looks like
+
+The response addresses the intended network scope, and you can identify the evidence behind it. An answer that reports missing data can also be useful: use it to identify the next collection or discovery check.
+
+## Troubleshooting
+
+If the expected device is missing, check Inventory and discovery results. If a run fails, retain the run or thread identifier and the time of the failure for [support](/support/contact).
+
+## Related guides
+
+[Inventory and topology](/capabilities/inventory-and-topology) · [Slack](/integrations/slack) · [Incidents](/capabilities/incidents)
+
+## Review before publication
+
+Validate the thread-creation flow, the exact response and evidence controls, and a reproducible example in a customer-like environment.

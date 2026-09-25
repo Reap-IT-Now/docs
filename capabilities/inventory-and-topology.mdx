@@ -1,0 +1,45 @@
+---
+title: "Inventory and topology"
+description: "Find devices and explore the network context around them."
+tag: "Draft"
+noindex: true
+---
+
+<Note>
+  **Draft guide.** This page is prepared for product review. Confirm the workflow against your deployed REAP version before publishing it to customers.
+</Note>
+
+Use **Inventory** for device records and **Topology v2** for network views. Together, they help establish the scope of an investigation.
+
+## Before you begin
+
+Complete [site discovery](/deployment/sites-and-discovery) and verify at least one expected device.
+
+## Find a device
+
+1. Open **Inventory**.
+2. Search by name, vendor, model, or IP address.
+3. Open the device record and check its identity, site, and management address.
+4. Review the available details for the question you are investigating.
+
+The device view can provide links to collected configuration and other available evidence. The information present depends on what has been discovered and collected.
+
+## Explore a network view
+
+1. Open **Topology v2**.
+2. Choose the appropriate system or saved view.
+3. Set the scope required by that view.
+4. Inspect the relevant nodes, relationships, and layers.
+5. Check the view's time context before comparing it with an incident or change.
+
+## What to verify
+
+You can locate the expected device and distinguish the scope and time of the view you are using. Treat a missing relationship as a reason to inspect discovery and collection coverage before drawing a conclusion.
+
+## Next steps
+
+[Ask a question in Chat](/capabilities/chat) or [inspect configuration history](/capabilities/configuration-history).
+
+## Review before publication
+
+Confirm the customer-facing topology version label, default views, scope selectors, data freshness indicators, and supported relationship types.

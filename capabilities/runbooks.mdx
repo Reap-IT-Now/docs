@@ -1,0 +1,49 @@
+---
+title: "Runbooks"
+description: "Define repeatable operational work and inspect its results."
+tag: "Draft"
+noindex: true
+---
+
+<Note>
+  **Draft guide.** This page is prepared for product review. Confirm the workflow against your deployed REAP version before publishing it to customers.
+</Note>
+
+Use **Runbooks** to organize reusable operational procedures and review their execution.
+
+## The workspace
+
+| Area | Purpose |
+| --- | --- |
+| Library | Find reusable runbooks and inspect their versions and required inputs. |
+| Schedules | Manage recurring executions, including their version, inputs, and timezone. |
+| Executions | Review progress, reports, and evidence from manual or scheduled work. |
+
+## Run a reviewed procedure
+
+<Steps>
+  <Step title="Choose a runbook">
+    Open **Runbooks** and find the procedure in the library. Review its purpose, selected version, required inputs, and intended targets.
+  </Step>
+  <Step title="Set the execution inputs">
+    Supply the values required for the task. Verify the target scope before continuing.
+  </Step>
+  <Step title="Review and launch">
+    Use **Run once** for a single execution, or **On a schedule** when recurring execution is appropriate. Complete any review or approval requested by the workflow.
+  </Step>
+  <Step title="Inspect the outcome">
+    Open the execution and review its status, report, and available evidence. Resolve partial or failed steps before treating the task as complete.
+  </Step>
+</Steps>
+
+## What to verify
+
+The execution used the intended version, inputs, and scope. Review the outcome rather than relying only on the fact that a run was started.
+
+## From Slack
+
+See the [Slack integration guide](/integrations/slack) for the supported runbook interaction flow.
+
+## Review before publication
+
+Confirm creation and publishing steps, approval behavior, execution permissions, supported scheduling options, and a tested example with expected results.

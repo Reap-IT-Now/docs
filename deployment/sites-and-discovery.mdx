@@ -1,0 +1,50 @@
+---
+title: "Sites and device discovery"
+description: "Define a site, discover its devices, and verify the resulting inventory."
+tag: "Draft"
+noindex: true
+---
+
+<Note>
+  **Draft guide.** This page is prepared for product review. Confirm the workflow against your deployed REAP version before publishing it to customers.
+</Note>
+
+Use **Connectivity & Sites** to organize your deployment by network location and run discovery within an agreed scope.
+
+## Before you begin
+
+Prepare a [cluster and connector](/deployment/clusters-and-connectors), [device credentials](/deployment/device-credentials), and a small initial set of expected devices.
+
+<Steps>
+  <Step title="Create the site">
+    Open **Connectivity & Sites**, select **Sites**, and use **Create Site**. Enter the site's details and confirm the connectivity that will serve it.
+  </Step>
+  <Step title="Define the discovery scope">
+    Open the site and select **Discover**. Use the discovery configuration appropriate to your environment and keep the initial scope limited to approved targets.
+  </Step>
+  <Step title="Run and inspect discovery">
+    Start the configured discovery job. Inspect the run details and any reported failures before repeating or expanding the job.
+  </Step>
+  <Step title="Verify the inventory">
+    Open the site's **Inventory** view or the organization-wide **Inventory** page. Compare the results with known device names and management addresses.
+  </Step>
+</Steps>
+
+## What to verify
+
+- Expected devices are associated with the intended site.
+- Device identity and management addresses match your known environment.
+- Authentication and reachability failures are understood.
+- Available device details provide enough context for your first question.
+
+## If devices are missing
+
+Check the discovery scope first, then connector reachability and credential assignments. Keep the run identifier and failure details when [contacting support](/support/contact).
+
+## Next step
+
+[Ask your first network question](/capabilities/chat).
+
+## Review before publication
+
+Confirm the exact site form fields, discovery target formats, job creation steps, supported protocols, and run states.
