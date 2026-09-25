@@ -1,0 +1,59 @@
+---
+title: "Quickstart"
+description: "Go from organization access to your first question about a discovered network."
+keywords: ["sign-up","signup","onboarding","getting started","first question"]
+tag: "Draft"
+noindex: true
+---
+
+<Note>
+  **Draft guide.** This page is prepared for product review. Confirm the workflow against your deployed REAP version before publishing it to customers.
+</Note>
+
+## Before you begin
+
+Complete the [requirements checklist](/getting-started/requirements). Have a REAP organization, an approved initial network scope, and someone who can confirm the devices you expect to discover.
+
+<Steps>
+  <Step title="Access your organization">
+    Sign in using the REAP URL provided for your organization. Confirm the active organization before you create resources. If you need an account or invitation, contact your REAP administrator.
+  </Step>
+  <Step title="Prepare a cluster and connector">
+    Open **Connectivity & Sites**. Follow [Clusters and connectors](/deployment/clusters-and-connectors) to prepare connectivity for your initial site.
+  </Step>
+  <Step title="Configure device credentials">
+    Open **Credentials** and prepare the authentication required by your devices. Follow [Device credentials](/deployment/device-credentials) for the setup and assignment checklist.
+  </Step>
+  <Step title="Add a site and discover devices">
+    Create your site, associate the appropriate connectivity, and run discovery for the approved scope. Follow [Sites and device discovery](/deployment/sites-and-discovery).
+  </Step>
+  <Step title="Check a known device">
+    Open **Inventory** and find a device you expected to discover. Check its site, management address, and available details before using it as investigation context.
+  </Step>
+  <Step title="Ask your first network question">
+    Open **Chat** and start a conversation. Replace the example site name with your own:
+
+    > What devices have been discovered at the London site? Summarize the available device information and show the evidence behind your answer.
+
+    Review the answer and any supporting evidence or artifacts. Compare at least one result with the device you checked in Inventory.
+  </Step>
+</Steps>
+
+## What success looks like
+
+You can identify a known device, ask a question about the discovered network, and understand the evidence that supports the response. If the answer lacks the expected context, check the selected organization, discovery results, and available device data before expanding your deployment.
+
+## Review before publication
+
+Test the complete path in a supported deployment, including organization access, connector readiness, credential assignment, discovery, and a first answer with inspectable evidence. Confirm the setup links contain the exact procedures needed at each step.
+
+## Keep going
+
+<Columns cols={2}>
+  <Card title="Ask better network questions" icon="comments" href="/capabilities/chat">
+    Scope a question and inspect its answer.
+  </Card>
+  <Card title="Connect Slack" icon="slack" href="/integrations/slack">
+    Bring network questions into your team's Slack workflow.
+  </Card>
+</Columns>

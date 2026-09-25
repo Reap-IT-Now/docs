@@ -11,15 +11,60 @@
   "navigation": {
     "pages": [
       {
-        "group": "Documentation",
+        "group": "Getting started",
         "pages": [
-          "index"
+          "index",
+          "getting-started/overview",
+          "getting-started/requirements",
+          "getting-started/quickstart"
+        ]
+      },
+      {
+        "group": "Deployment",
+        "pages": [
+          "deployment/overview",
+          "deployment/clusters-and-connectors",
+          "deployment/device-credentials",
+          "deployment/sites-and-discovery"
+        ]
+      },
+      {
+        "group": "Capabilities",
+        "pages": [
+          "capabilities/overview",
+          "capabilities/inventory-and-topology",
+          "capabilities/chat",
+          "capabilities/incidents",
+          "capabilities/runbooks",
+          "capabilities/change-management",
+          "capabilities/cves",
+          "capabilities/configuration-history"
         ]
       },
       {
         "group": "Integrations",
         "pages": [
-          "integrations/slack"
+          "integrations/overview",
+          "integrations/slack",
+          "integrations/servicenow",
+          "integrations/microsoft-teams",
+          "integrations/netbox"
+        ]
+      },
+      {
+        "group": "Security and administration",
+        "pages": [
+          "security/data-collection-and-security",
+          "security/users-and-permissions"
+        ]
+      },
+      {
+        "group": "Resources",
+        "hidden": true,
+        "pages": [
+          "support/troubleshooting",
+          "support/contact",
+          "whats-new"
         ]
       }
     ]
@@ -31,8 +76,12 @@
   "navbar": {
     "links": [
       {
+        "href": "/whats-new",
+        "label": "What's new"
+      },
+      {
         "label": "Support",
-        "href": "mailto:support@reapitnow.ai"
+        "href": "/support/contact"
       }
     ],
     "primary": {
@@ -65,17 +114,42 @@
         ]
       },
       {
-        "header": "Help",
+        "header": "Resources",
         "items": [
           {
+            "label": "What's new",
+            "href": "/whats-new"
+          },
+          {
+            "label": "Troubleshooting",
+            "href": "/support/troubleshooting"
+          },
+          {
             "label": "Contact support",
-            "href": "mailto:support@reapitnow.ai"
+            "href": "/support/contact"
+          }
+        ]
+      },
+      {
+        "header": "Trust",
+        "items": [
+          {
+            "label": "Data collection and security",
+            "href": "/security/data-collection-and-security"
+          },
+          {
+            "label": "Security statement",
+            "href": "https://reapitnow.ai/security"
+          },
+          {
+            "label": "Privacy",
+            "href": "https://reapitnow.ai/privacy"
           }
         ]
       }
     ]
   },
-  "description": "REAP documentation for connecting integrations and working with network incidents, network questions, and runbooks.",
+  "description": "REAP documentation for getting started, deploying connectors, investigating your network, configuring integrations, and reviewing security.",
   "appearance": {
     "default": "light",
     "strict": false
@@ -86,8 +160,16 @@
   "redirects": [
     {
       "source": "/quickstart",
-      "destination": "/",
+      "destination": "/getting-started/quickstart",
       "permanent": true
     }
-  ]
+  ],
+  "search": {
+    "prompt": "Search REAP documentation..."
+  },
+  "banner": {
+    "content": "Documentation review preview. Guides marked Draft need product validation. [View published documentation](https://reap-731233b9.mintlify.io/).",
+    "dismissible": false,
+    "type": "info"
+  }
 }

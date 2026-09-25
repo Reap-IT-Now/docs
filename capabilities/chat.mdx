@@ -1,0 +1,69 @@
+---
+title: "Chat"
+description: "Ask questions about your network in natural language and explore the evidence behind the answers."
+keywords:
+  - "Ask REAP"
+  - "network questions"
+  - "AI investigation"
+  - "chat"
+tag: "Draft"
+noindex: true
+---
+
+Chat lets you ask questions about your network in natural language, as you would in a conversation with an AI assistant. Describe what you want to understand, name the site or devices involved, and ask follow-up questions as the investigation develops.
+
+REAP connects the conversation to the network information and tools available in your organization. It can look up context, collect supported device evidence, and summarize findings. This gives your team a starting point for an investigation without first assembling the answer across multiple device screens.
+
+## What you can do
+
+- **Understand your network.** Ask about discovered devices, a site, or the relationships available in your topology.
+- **Investigate a specific question.** Describe the observed behavior and relevant time period. REAP can ask for missing details and gather evidence for supported checks.
+- **Build on an answer.** Continue in the same conversation to narrow the scope, examine a finding, or ask for the evidence behind a conclusion.
+- **Inspect the outputs.** Review the response and any supporting tables, reports, topology views, or collected evidence produced by the request.
+
+An answer depends on the available data, device access, and supported operations. A response that identifies missing evidence gives you a useful next step for the investigation.
+
+## Example: start broad, then focus
+
+Start with a question such as:
+
+> Which devices have been discovered at the London site?
+
+Then narrow the investigation:
+
+> For edge-router-1, check interface status and show the evidence for any interfaces that are administratively enabled but operationally down.
+
+These are example prompts; replace the site and device names with names from your organization. When timing matters, state the time window and ask when the supporting data was collected.
+
+## How to use Chat
+
+<Note>
+  **Draft guide.** The functionality is grounded in the product source. Validate these steps against your deployed REAP version before publishing this guide to customers.
+</Note>
+
+Confirm that the relevant devices have been [discovered](/deployment/sites-and-discovery) and that you are in the correct organization.
+
+<Steps>
+  <Step title="Start a conversation">
+    Open **Chat** and select the **\+** button labeled **Create thread**. Enter the question you want answered, then select **Send message**.
+  </Step>
+  <Step title="Clarify the scope">
+    Include recognizable site or device names. Answer any follow-up question REAP asks to resolve the target or missing inputs.
+  </Step>
+  <Step title="Review the answer and evidence">
+    Inspect the response, progress, and any generated outputs. Check which devices and time period the evidence covers.
+  </Step>
+  <Step title="Continue the investigation">
+    Ask a focused follow-up. You can request the basis for a conclusion, narrow the device scope, or ask what information is still missing.
+  </Step>
+</Steps>
+
+## Understand the result
+
+A useful answer addresses the intended scope and lets you trace the conclusion to its evidence. Distinguish observed facts from explanations that still need verification.
+
+If an expected device is missing, check Inventory and discovery results. If a request fails, retain the thread or run identifier and failure time for [support](/support/contact).
+
+## Related guides
+
+[Inventory and topology](/capabilities/inventory-and-topology) · [Runbooks](/capabilities/runbooks) · [Chat from Slack](/integrations/slack)

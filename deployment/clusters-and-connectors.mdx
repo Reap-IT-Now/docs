@@ -1,0 +1,51 @@
+---
+title: "Clusters and connectors"
+description: "Prepare connectivity for the network sites you want to discover."
+tag: "Draft"
+noindex: true
+---
+
+<Note>
+  **Draft guide.** This page is prepared for product review. Confirm the workflow against your deployed REAP version before publishing it to customers.
+</Note>
+
+Manage these resources in **Connectivity & Sites**, using the **Clusters** and **Connectors** tabs.
+
+## Before you begin
+
+Confirm your [deployment requirements](/getting-started/requirements), connector placement, site scope, and access to the supported installation environment.
+
+## Setup workflow
+
+<Steps>
+  <Step title="Define the cluster">
+    Open **Clusters** and create or select the cluster that will serve the intended network scope. Use a name your operations team can identify.
+  </Step>
+  <Step title="Prepare the connector">
+    Open **Connectors** and create or select the connector associated with that cluster. Review its details before generating deployment material.
+  </Step>
+  <Step title="Use the deployment instructions for your environment">
+    The connector detail view includes **Bootstrap** information. Use the supported deployment procedure and the bootstrap material generated for this connector.
+
+    Exact installation commands, supported runtimes, sizing, and network requirements must be confirmed before this guide is published.
+  </Step>
+  <Step title="Verify readiness">
+    Return to the connector record and check its reported state. Confirm the intended cluster and site associations before starting discovery.
+  </Step>
+</Steps>
+
+## Troubleshooting
+
+| Symptom | Check |
+| --- | --- |
+| The connector does not appear ready | Deployment completion, the connector's reported state, and the required network path. |
+| The connector serves the wrong scope | The selected organization, cluster, and site associations. |
+| Discovery cannot reach devices | Connectivity from the deployed connector to the target management addresses. |
+
+## Next step
+
+[Configure device credentials](/deployment/device-credentials), then [add and discover a site](/deployment/sites-and-discovery).
+
+## Review before publication
+
+Validate the cluster creation fields, supported deployment options, exact enrollment procedure, readiness states, and recovery steps against a supported environment.

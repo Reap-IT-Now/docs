@@ -1,0 +1,46 @@
+---
+title: "Users and permissions"
+description: "Manage access through the Access & Identity workspace."
+keywords: ["Access & Identity","RBAC","roles","SSO","members","permissions"]
+tag: "Draft"
+noindex: true
+---
+
+<Note>
+  **Draft guide.** This page is prepared for product review. Confirm the workflow against your deployed REAP version before publishing it to customers.
+</Note>
+
+Open **Access & Identity** to manage members, invitations, roles, API keys, and identity-provider connections in your organization.
+
+## Workspace map
+
+| Area | What to manage |
+| --- | --- |
+| Members | Current organization memberships and their assigned roles. |
+| Invitations | Invitations and the roles proposed for new members. |
+| Roles | Role definitions and their permissions. |
+| API Keys | API access and assigned roles. |
+| OIDC Connections | OpenID Connect identity-provider configuration. |
+| SAML Connections | SAML identity-provider configuration. |
+
+## Add a member
+
+1. Confirm that you are working in the intended organization.
+2. Open **Access & Identity** and select **Invite Member**.
+3. Enter the intended recipient and choose the roles required for their work.
+4. Review the invitation before sending it.
+5. Check the resulting invitation and membership state.
+
+## Review permissions
+
+Inspect the permissions included in a role before assigning it. Access should match the person's intended tasks, such as deployment setup, investigation, or administration.
+
+For API access, confirm the key's intended owner and role assignments. Follow your organization's procedure for storing and rotating secrets.
+
+## What to verify
+
+The intended person or API client can complete its required tasks in the correct organization, and its assigned roles match that purpose.
+
+## Review before publication
+
+Validate the built-in role matrix, invitation expiry and acceptance flow, API-key lifecycle, administrator requirements, and SAML/OIDC setup guides.

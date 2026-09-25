@@ -1,0 +1,43 @@
+---
+title: "Overview and key concepts"
+description: "Understand how organizations, clusters, connectors, and sites fit together."
+tag: "Draft"
+noindex: true
+---
+
+<Note>
+  **Draft guide.** This page is prepared for product review. Confirm the workflow against your deployed REAP version before publishing it to customers.
+</Note>
+
+REAP brings network context into investigation and operational workflows. Start by connecting a scoped part of your environment, then use the resulting evidence to ask questions and investigate changes.
+
+## The building blocks
+
+| Concept | What it represents |
+| --- | --- |
+| Organization | The workspace in which you manage access, network resources, and integrations. |
+| Cluster | A grouping of connectors used to connect network environments to REAP. |
+| Connector | The deployed component that provides connectivity to the network you want REAP to work with. |
+| Site | A named network location or scope associated with your devices. |
+| Credential | An authentication configuration used to access devices or services. |
+| Discovery | The workflow that identifies devices within your selected network scope. |
+| Integration | A connection to another system, such as Slack or ServiceNow. |
+
+## Follow one setup path
+
+Use the [quickstart](/getting-started/quickstart) to move from organization access to your first network question. The quickstart links to the deployment guides for each setup task.
+
+Already connected? Go to [Capabilities](/capabilities/overview) to choose a workflow.
+
+<Note>
+  **For product review:** confirm these concept definitions and the supported relationships between sites, clusters, and connectors against the deployed product.
+</Note>
+
+<Columns cols={2}>
+  <Card title="Prepare your environment" icon="list-check" href="/getting-started/requirements">
+    Gather access, network scope, and deployment requirements before you begin.
+  </Card>
+  <Card title="Review data and security" icon="shield-halved" href="/security/data-collection-and-security">
+    Find security resources and prepare your organization's review.
+  </Card>
+</Columns>

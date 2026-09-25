@@ -1,0 +1,73 @@
+---
+title: "Runbooks"
+description: "Create a procedure once and reuse it across supported devices and vendors."
+tag: "Draft"
+noindex: true
+---
+
+A runbook is a reusable procedure for network work: the checks to perform, the decisions to make, and the result to report. In REAP, you describe that procedure in natural language and compile it into a saved, reviewable version.
+
+Create the procedure once, then run that version again with different device or site inputs. Runbooks separate the task from vendor-specific commands, so the same procedure can be reused across supported vendors when the required operations are available. This helps your team apply the same checks consistently without maintaining a separate checklist for each platform.
+
+## What you can do
+
+- **Turn a team's procedure into repeatable work.** Describe the task, required evidence, decision points, and expected output. REAP turns those instructions into steps you can review before publishing.
+- **Reuse the procedure with a new scope.** Supply the inputs for each execution while keeping the reviewed version of the procedure.
+- **Run on demand or on a schedule.** Use one procedure for an individual investigation or a recurring check.
+- **Review what happened.** Follow execution progress and inspect the report, step outcomes, and supporting evidence.
+
+For portability, describe the outcome you need and make device or site selections inputs to the runbook. A procedure tied to a named device, vendor-specific command, or platform-only feature needs review before you reuse it elsewhere.
+
+## Example: a consistent interface check
+
+You could describe a runbook like this:
+
+> For the selected devices, collect interface status, identify interfaces that are administratively enabled but operationally down, and produce a report with the device, interface, finding, and supporting evidence. Do not change configuration.
+
+The value is the reusable check and report. After reviewing and testing it, your team can run the same procedure for another supported device group by changing the inputs.
+
+## How to use Runbooks
+
+<Note>
+  **Draft guide.** The functionality is grounded in the product source. Validate these steps against your deployed REAP version before publishing this guide to customers.
+</Note>
+
+Choose a clear task and confirm that REAP can reach the target devices and perform the required operations.
+
+### Create and publish
+
+1. Open **Runbooks**, select **Library**, and select **Create runbook** to open the **New Runbook** page.
+2. Enter a title and **Natural-language instructions**. Describe the task, inputs, expected result, and any restrictions.
+3. Select **Save runbook**. Review the **Saved Template Preview**, including parameters, steps, assumptions, missing inputs, and validation diagnostics.
+4. Select **Open saved runbook** and inspect the selected version's **Instructions**, **Compiled** steps, and **Diagnostics**.
+5. Resolve the issues identified during review, then select **Publish version** when the version is ready.
+
+Saving or publishing a version does not start an execution. The execution form lets you select an eligible ready or published version.
+
+### Run once
+
+1. Return to **Library** and select **Use runbook** beside the procedure you want to run. Selecting the runbook name opens its details instead.
+2. Choose **Run once**. Select the **Pinned version**, supply the required inputs, and verify the target scope.
+3. Select **Review** and confirm the version and inputs shown.
+4. Select **Start execution**. Open the execution to follow its progress.
+5. If it shows **Waiting for approval**, open the pending review and inspect the proposed action. An authorized reviewer can select **Approve change** or **Reject change**.
+6. Review the final status, report, and supporting evidence. You can return to the run from **Executions**.
+
+Test a new procedure on a controlled initial scope before using it more broadly. A started execution is not a completed task; investigate partial or failed steps.
+
+### Schedule recurring work
+
+1. Select **Use runbook** in **Library**, then choose **On a schedule**.
+2. Select the **Pinned version**, supply the inputs, and confirm the targets.
+3. Enter a **Schedule name**, choose **Repeat** and the applicable time or day, and confirm the **Timezone**.
+4. Select **Keep this schedule paused** if it should not become active yet.
+5. Select **Review**, check the timing, version, and inputs, then select **Create schedule**.
+6. Use **Schedules** to check the next occurrence, pause or resume the schedule, and inspect its execution history.
+
+Each occurrence uses the saved inputs and pinned version. Publishing another version does not update an existing schedule. Overlapping occurrences of the same schedule are skipped, and resuming a schedule skips missed times.
+
+If submitting an execution returns an error or an uncertain result, check **Executions** before starting another run. For runs started from Slack, review the result in the same Slack incident thread.
+
+## Related guides
+
+[Chat](/capabilities/chat) · [Change Management](/capabilities/change-management) · [Runbooks in Slack](/integrations/slack)

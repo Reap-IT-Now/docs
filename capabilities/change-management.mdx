@@ -1,0 +1,69 @@
+---
+title: "Change Management"
+description: "Turn a proposed change into a validation plan with before-and-after evidence."
+keywords:
+  - "change validation"
+  - "pre-check"
+  - "post-check"
+tag: "Draft"
+noindex: true
+---
+
+Change Management helps you establish whether a network change achieved its intended result. Describe what you plan to change, and REAP prepares a validation plan that defines what to check and what evidence to capture before and after implementation.
+
+Your team reviews the plan, captures a baseline, performs the change, and then captures the post-change state. REAP compares the observations against the plan and retains the results in a validation report. This gives you a consistent record of what was expected, what was observed, and what still needs attention.
+
+## What you can do
+
+- **Plan the checks from your intent.** Supply the proposed change and target devices. REAP resolves the scope, requests missing information, and proposes checks supported by the selected change type.
+- **Establish readiness before implementation.** Capture pre-change evidence and check it against the plan's required starting conditions.
+- **Validate the outcome.** Compare post-change observations with the expected result and any conditions the plan requires to remain unchanged.
+- **Keep the evidence together.** Review the verdict, reasons, collection details, and before-and-after observations in the validation record.
+
+Change Management performs validation and evidence collection. Your team implements the network change through its approved operational process. The checks available depend on the change type and supported device platform.
+
+## Example: enable an interface
+
+An example request is:
+
+> Validate interface Ethernet1 on edge-router-1 changing from administratively down to up.
+
+REAP prepares the supported checks for that scope. You review the plan, capture the original state, enable the interface through your change process, and run the post-checks. The report shows whether the observed state meets the approved checks.
+
+The report's conclusion is limited to those checks. An administrative-state check alone does not establish end-to-end application connectivity.
+
+## How to use Change Management
+
+<Note>
+  **Draft guide.** The functionality is grounded in the product source. Validate these steps against your deployed REAP version before publishing this guide to customers.
+</Note>
+
+Before starting, identify the affected devices, expected outcome, and conditions that must remain unchanged. Confirm that the required devices are reachable through REAP.
+
+<Steps>
+  <Step title="Describe the proposed change">
+    Open **Change Management** and select **New change**. Enter the **Proposed change**, including recognizable device names and the intended outcome, then select **Start change validation**.
+  </Step>
+  <Step title="Review and approve the plan">
+    Select **Review validation** when the plan is ready. If more information is required, use **Provide input in chat** and answer the clarification. Review the scope and success criteria, then select **Approve plan**.
+  </Step>
+  <Step title="Capture the baseline">
+    Select **Run pre-checks** before implementation. Review the evidence and **Pre-change readiness**. **Ready** means the plan's blocking baseline requirements are satisfied. **Attention** means advisory checks need review. For **Blocked** or **Inconclusive**, resolve the failed requirement or evidence gap and rerun the pre-checks before implementing the change.
+  </Step>
+  <Step title="Implement the approved change">
+    Perform the change through your organization's approved process. Preserve the original pre-change evidence as the baseline.
+  </Step>
+  <Step title="Capture and compare the result">
+    After implementation, select **Run post-checks**. Review the validation report, verdict reasons, before-and-after evidence, and recommended next actions. Retain the validation with your change record.
+  </Step>
+</Steps>
+
+## Understand the result
+
+Check that the intended outcome and required unchanged conditions were actually assessed. Missing, failed, or inconclusive checks do not establish that the change succeeded.
+
+If the validation needs attention, inspect collection details and the selected plan before retrying. A collection taken after implementation cannot replace the original pre-change baseline.
+
+## Related guides
+
+[Running config](/capabilities/configuration-history) · [Chat](/capabilities/chat) · [Runbooks](/capabilities/runbooks)

@@ -1,17 +1,54 @@
 ---
 title: "REAP documentation"
-sidebarTitle: "Overview"
-description: "Guides for connecting your tools and working with REAP."
+description: "Connect your network. Understand what changed. Take the next step with confidence."
+sidebarTitle: "Documentation home"
+mode: "wide"
+hideFooterPagination: true
 ---
 
-Use REAP to investigate network incidents and ask questions about your network. These guides walk you through connecting your tools and using REAP in your team's workflows.
+<div className="reap-home">
+  <div className="reap-start">
+    <div className="reap-eyebrow">FROM SIGNALS TO ANSWERS</div>
+    <h2>Start with your first network answer</h2>
+    <p>Set up access, connect a site, discover your devices, and ask REAP a question grounded in your network.</p>
 
-## Integrations
+    <div className="reap-start-actions">
+      <a className="reap-primary-link" href="/getting-started/quickstart">Start the quickstart <span aria-hidden="true">→</span></a>
+      <a className="reap-text-link" href="/deployment/overview">Explore deployment guides <span aria-hidden="true">→</span></a>
+    </div>
 
-<Card title="Slack integration" icon="slack" iconType="brands" href="/integrations/slack">
-  Connect your workspace, receive incident notifications, ask network questions, assign ServiceNow tickets, and run runbooks from Slack.
-</Card>
+    <div className="reap-journey" aria-label="Setup journey">
+      <span><b>01</b> Access REAP</span>
+      <span><b>02</b> Connect a site</span>
+      <span><b>03</b> Ask a question</span>
+    </div>
+  </div>
 
-## Need help?
+  <div className="reap-section-intro">
+    <h2>Find your next step</h2>
+    <p>Practical guides, organized around the work you need to do.</p>
+  </div>
 
-For help with access, initial setup, or an integration, contact your REAP representative or email [support@reapitnow.ai](mailto:support@reapitnow.ai). Include your REAP organization name and a description of what you need help with.
+  <Columns cols={3}>
+    <Card title="Capabilities" icon="compass" href="/capabilities/overview" arrow>
+      Understand your network, investigate incidents, run repeatable checks, and validate changes.
+      <span className="reap-card-cta">Explore capabilities <span aria-hidden="true">→</span></span>
+    </Card>
+
+    <Card title="Integrations" icon="plug" href="/integrations/overview" arrow>
+      Bring REAP into your team's incident and collaboration workflows. Start with Slack.
+      <span className="reap-card-cta">Connect your tools <span aria-hidden="true">→</span></span>
+    </Card>
+
+    <Card title="Security and administration" icon="shield-halved" href="/security/data-collection-and-security" arrow>
+      Review data collection scope, find security resources, and manage organization access.
+      <span className="reap-card-cta">Review data and security <span aria-hidden="true">→</span></span>
+    </Card>
+  </Columns>
+
+  <div className="reap-home-footer">
+    <a href="/whats-new"><strong>What's new</strong><span>See documentation updates <span aria-hidden="true">→</span></span></a>
+    <a href="/support/troubleshooting"><strong>Need a hand?</strong><span>Troubleshoot setup and common issues <span aria-hidden="true">→</span></span></a>
+    <a href="/support/contact"><strong>Talk to our team</strong><span>Get help with your REAP environment <span aria-hidden="true">→</span></span></a>
+  </div>
+</div>

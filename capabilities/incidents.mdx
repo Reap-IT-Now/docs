@@ -1,0 +1,51 @@
+---
+title: "Incidents"
+description: "Bring incident context, available network evidence, and linked tickets into one investigation."
+tag: "Draft"
+noindex: true
+---
+
+Incidents provides a shared place to review REAP incidents and incidents associated with connected ticketing systems. It brings the incident's description, source, assignment, and linked ticket context together with the network evidence available for that incident.
+
+This helps your team understand what needs attention and continue an investigation with its context intact. You can move from a ticket or reported symptom to the affected scope, review the available analysis, and coordinate the next action with the responsible team.
+
+## What you can do
+
+- **Review work in one queue.** Find incidents from REAP and connected external sources, including their assignment and ticket context.
+- **Understand the affected scope.** Inspect the incident description, target, severity, and status where those details are available.
+- **Investigate with evidence.** Review available analysis, topology context, telemetry evidence, and attachments. The evidence shown depends on the incident source and collected data.
+- **Connect investigation and follow-up.** Keep linked external tickets visible while your team coordinates the response.
+
+An incident brings the relevant context together; the evidence still determines what you can conclude. Different sources may supply different levels of detail.
+
+## Example: continue from a service ticket
+
+For a ticket reporting a connectivity issue, open the associated incident and confirm the affected device or service. Review any analysis and network context, identify what remains unverified, and use that information to choose the next check.
+
+The linked ticket gives the team a place to coordinate ownership while the incident evidence supports the technical investigation.
+
+## How to use Incidents
+
+<Note>
+  **Draft guide.** The functionality is grounded in the product source. Validate these steps against your deployed REAP version before publishing this guide to customers.
+</Note>
+
+Confirm that you are in the correct organization. Workflows involving an external ticket require the corresponding integration to be configured.
+
+1. Open **Incidents** and locate the incident.
+2. Review its description, source, assignment, and linked external tickets.
+3. Check the affected scope and the time of the available information.
+4. Inspect any **Analysis**, **Topology Context**, **Telemetry Evidence**, and attachments shown for that incident.
+5. Identify missing evidence and coordinate the next action through the appropriate collaboration or ticketing workflow.
+
+### Work from Slack
+
+The [Slack guide](/integrations/slack) explains incident notifications, questions, and supported actions from your team's workspace. Its ServiceNow incident workflow requires a configured ServiceNow integration.
+
+## Understand the result
+
+You should be able to identify the source, affected scope, available evidence, and current ownership. An external ticket's status and the technical investigation describe different aspects of the work. Confirm which record an action updates before changing its state.
+
+## Related guides
+
+[Chat](/capabilities/chat) · [Inventory and topology](/capabilities/inventory-and-topology) · [Slack](/integrations/slack)

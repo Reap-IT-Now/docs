@@ -1,0 +1,66 @@
+---
+title: "Running config"
+description: "Understand collected device configurations and see what changed between snapshots."
+sidebarTitle: "Running config"
+keywords:
+  - "configuration history"
+  - "configuration drift"
+  - "config diff"
+  - "snapshots"
+tag: "Draft"
+noindex: true
+---
+
+Running config gives you a history of a device's collected running configuration. You can inspect a snapshot, read its available summary, and compare versions to see which configuration lines changed.
+
+This helps your team answer “What changed?” during an investigation or change review. Instead of relying on memory or manually comparing saved files, you can work from timestamped snapshots and a visible difference between them.
+
+## What you can do
+
+- **Understand the collected configuration.** Review the current configuration summary and inspect the full snapshot when you need detail.
+- **Trace changes over time.** Use the history to find versions collected before and after the period you are investigating.
+- **Compare two snapshots.** Inspect a unified, side-by-side, or word-level difference and copy or download the result for follow-up.
+- **Check startup drift where available.** Compare collected startup and running configurations when that information is available for the device.
+
+Configuration differences help explain what changed. They are useful evidence alongside incident context, vulnerability assessments, and the checks in a change-validation plan.
+
+## Example: investigate after a maintenance window
+
+If a problem begins after maintenance, select a snapshot from before the window and one collected afterward. Review the changed lines and compare them with the intended work.
+
+A difference helps focus your next question. It does not by itself prove who made the change or that the difference caused the problem.
+
+## How to use Running config
+
+<Note>
+  **Draft guide.** The functionality is grounded in the product source. Validate these steps against your deployed REAP version before publishing this guide to customers.
+</Note>
+
+Find the intended device and confirm that configuration data has been collected. Comparing versions requires at least two snapshots.
+
+<Steps>
+  <Step title="Open the device configuration">
+    Find the device in **Inventory** and select **Open running config**.
+  </Step>
+  <Step title="Review the current context">
+    Confirm the device identity and collection time. Read **Current Running Config Summary** where a summary is available.
+  </Step>
+  <Step title="Inspect a snapshot">
+    In **Change history**, find a collected version and select **View snapshot** to inspect it.
+  </Step>
+  <Step title="Compare versions">
+    In **Diff Between Snapshots**, choose **From** and **To** versions and a **Diff style**. Check both collection times and inspect the changes. Use **Copy diff** or **Download diff** when you need to retain the comparison.
+  </Step>
+</Steps>
+
+When the page shows **Startup drift**, open it to inspect **Startup vs Running Diff** for the available collected data.
+
+## Understand the result
+
+Each snapshot represents a collection time. The latest collected configuration may differ from the device's current state if the device changed after collection.
+
+If a snapshot is missing, check collection coverage. A gap in history does not mean that no change occurred. For a planned change, use [Change Management](/capabilities/change-management) to define and assess the required operational checks as well as configuration evidence.
+
+## Related guides
+
+[Change Management](/capabilities/change-management) · [CVEs](/capabilities/cves) · [Incidents](/capabilities/incidents)
