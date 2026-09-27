@@ -170,3 +170,22 @@ Verification:
 - The five uploaded PNG blobs match the supplied screenshots; no raw video, bootstrap payload, diagnostic terminal, or AWS account screenshot was published.
 - Mintlify build for content commit `92103d4c7f2476a1f8bf60aa914fc9885e80e657` succeeded.
 - Rendered landing page and setup guides were inspected in the Mintlify preview.
+
+## Sanity check — September 26, 2026 (Pacific time)
+
+Rechecked the saved review branch against the complete supplied Word guide and transcript, the previously reviewed recording evidence, and the relevant UI source at `62b4546c51fa84f71f7b16d8d1363e9876653d91`. Reviewed all 26 page metadata blocks, internal targets, navigation group labels, and remaining editorial/source gaps.
+
+Two corrections:
+- The end of the discovery guide and the setup overview previously sent readers back to the beginning of Quickstart to ask a network question. Both now link directly to Chat's usage section. The discovery-to-Chat link was clicked and verified in the preview.
+- What's new now includes the September 26 setup guide update, the five screenshots, distinct sidebar names, and the continuing draft status. It makes no product release claim.
+
+Verification:
+- All 109 internal page, section, and image links resolve to existing targets.
+- No page label duplicates its parent navigation group; the existing 17 technical drafts retain Draft/noindex.
+- All three saved page files match the intended changes and preserve their frontmatter.
+- Relevant UI checks confirm the read-only inherited cluster, the required seed/CIDR input, assignment scopes/default priority, and credential field names.
+- Preview inspection covered the discovery page and landing page in dark theme and the updated documentation entry in light theme.
+- Mintlify build `9fe664853c2ffa508d0065727d9c4b556259a1c0` succeeded.
+- Engineering repositories and the production docs branch were not changed.
+
+Limits remain explicit: this is a reviewed documentation preview, not proof of a tested customer deployment. Production requirements and the recorded behavior questions above still need confirmation. Teams, ServiceNow, NetBox, and Users and permissions still contain incomplete draft guidance. Do not treat a successful documentation build as validation of those product workflows.
