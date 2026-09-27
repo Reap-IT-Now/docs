@@ -1,24 +1,18 @@
----
-title: "Deployment"
-description: "Set up the connectivity, credentials, and site scope behind your network data."
----
+Connect a site in four stages: define its scope, prepare connectivity, assign credentials, and run discovery. Each guide below owns the detailed procedure, so you can return to the relevant step when expanding your deployment.
 
-Work through these guides in order for your first site. When you expand to another location, reuse the same sequence and verify each layer before running discovery.
+The current walkthrough covers an **OnPrem** site with a connector hosted on **AWS EC2**. Start with the [requirements checklist](/getting-started/requirements) and obtain the deployment details approved for your environment.
 
-<Steps>
-  <Step title="Prepare connectivity">
-    [Clusters and connectors](/deployment/clusters-and-connectors) covers the resources you manage in **Connectivity & Sites**, connector enrollment, and readiness checks.
-  </Step>
-  <Step title="Configure authentication">
-    [Device credentials](/deployment/device-credentials) covers credential types and the information to confirm before assigning them.
-  </Step>
-  <Step title="Define and discover your site">
-    [Sites and device discovery](/deployment/sites-and-discovery) covers site scope, discovery, and the checks to make in Inventory.
-  </Step>
-</Steps>
+## Setup sequence
 
-## Before you expand
+| Stage | Guide | Check before moving on |
+| --- | --- | --- |
+| 1. Create the site | [Sites and device discovery — create a site](/deployment/sites-and-discovery#create-a-site) | The site exists in the correct organization. |
+| 2. Prepare connectivity | [Clusters and connectors](/deployment/clusters-and-connectors) | The site is attached to the cluster, the connector is deployed, and the required network paths work. |
+| 3. Configure authentication | [Device credentials](/deployment/device-credentials) | Saved credentials have enabled assignments covering the intended devices. |
+| 4. Discover and verify | [Sites and device discovery — create a discovery job](/deployment/sites-and-discovery#create-a-discovery-job) | A run has completed and its results match the expected devices in Inventory. |
 
-Use [Requirements](/getting-started/requirements) to confirm deployment and network prerequisites. Keep your first discovery scope small enough to verify against known devices.
+## Continue from your results
 
-Once you can find the expected devices, return to the [quickstart](/getting-started/quickstart) and ask your first network question.
+Return to the [quickstart](/getting-started/quickstart) to ask your first network question, or [choose a workflow](/capabilities/overview) for the work you want to do next.
+
+When adding another site, review its connectivity and credential coverage before reusing existing resources.

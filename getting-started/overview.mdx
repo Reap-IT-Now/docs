@@ -1,41 +1,40 @@
----
-title: "Overview and key concepts"
-description: "Understand how organizations, clusters, connectors, and sites fit together."
-tag: "Draft"
-noindex: true
----
-
 <Note>
-  **Draft guide.** This page is prepared for product review. Confirm the workflow against your deployed REAP version before publishing it to customers.
+  **Draft guide.** Reviewed against the supplied discovery walkthrough and REAP UI source. Deployment-specific requirements still need confirmation before customer publication.
 </Note>
 
-REAP brings network context into investigation and operational workflows. Start by connecting a scoped part of your environment, then use the resulting evidence to ask questions and investigate changes.
+REAP connects network data to investigation and operational workflows. Start with one site, discover its devices, and use that context to ask questions, investigate incidents, or prepare repeatable checks.
 
 ## The building blocks
 
-| Concept | What it represents |
+| Concept | What it does |
 | --- | --- |
-| Organization | The workspace in which you manage access, network resources, and integrations. |
-| Cluster | A grouping of connectors used to connect network environments to REAP. |
-| Connector | The deployed component that provides connectivity to the network you want REAP to work with. |
-| Site | A named network location or scope associated with your devices. |
-| Credential | An authentication configuration used to access devices or services. |
-| Discovery | The workflow that identifies devices within your selected network scope. |
-| Integration | A connection to another system, such as Slack or ServiceNow. |
+| Organization | Keeps your network resources, access, and integrations in a workspace. Select the correct organization before setup. |
+| Site | Represents a network location or scope, such as a branch or data center. |
+| Cluster | Groups connectors and attaches them to a site. Discovery uses the cluster associated with that site. |
+| Connector | Runs in your deployment environment and provides connectivity to the network. Creating its REAP record and deploying the software are separate steps. |
+| Credential | Stores the authentication configuration for a device protocol, such as CLI (SSH) or SNMP v3. |
+| Credential assignment | Determines where a saved credential applies, using a scope and optional device filters. |
+| Discovery job | Saves the site, targets, and schedule for discovery. |
+| Discovery run | Executes a discovery job and records progress, results, and errors. |
+| Integration | Connects REAP to another system, such as Slack or ServiceNow. |
 
-## Follow one setup path
+## How setup fits together
 
-Use the [quickstart](/getting-started/quickstart) to move from organization access to your first network question. The quickstart links to the deployment guides for each setup task.
+Create a site, attach a connector cluster, and deploy a connector in that cluster. Add device credentials and assignments, then create a discovery job and start a run.
 
-Already connected? Go to [Capabilities](/capabilities/overview) to choose a workflow.
+After discovery, check the site's Inventory before using the collected information in Chat or another capability. A saved job is configuration; a completed run is evidence that discovery executed.
 
-<Note>
-  **For product review:** confirm these concept definitions and the supported relationships between sites, clusters, and connectors against the deployed product.
-</Note>
+## Choose your next step
 
 <Columns cols={2}>
+  <Card title="Set up your first site" icon="rocket" href="/getting-started/quickstart">
+    Follow the quickstart from organization access to your first network question.
+  </Card>
+  <Card title="Use your network data" icon="compass" href="/capabilities/overview">
+    Explore the workflows available after your network is connected.
+  </Card>
   <Card title="Prepare your environment" icon="list-check" href="/getting-started/requirements">
-    Gather access, network scope, and deployment requirements before you begin.
+    Gather access, deployment details, credentials, and target addresses.
   </Card>
   <Card title="Review data and security" icon="shield-halved" href="/security/data-collection-and-security">
     Find security resources and prepare your organization's review.

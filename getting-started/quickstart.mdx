@@ -1,57 +1,60 @@
----
-title: "Quickstart"
-description: "Go from organization access to your first question about a discovered network."
-keywords: ["sign-up","signup","onboarding","getting started","first question"]
-tag: "Draft"
-noindex: true
----
-
 <Note>
-  **Draft guide.** This page is prepared for product review. Confirm the workflow against your deployed REAP version before publishing it to customers.
+  **Draft guide.** Reviewed against the supplied discovery walkthrough and REAP UI source. Deployment-specific requirements still need confirmation before customer publication.
 </Note>
+
+Connect one site, discover its devices, and ask your first question about the network. This path covers an **OnPrem** site using a connector hosted on **AWS EC2**.
 
 ## Before you begin
 
-Complete the [requirements checklist](/getting-started/requirements). Have a REAP organization, an approved initial network scope, and someone who can confirm the devices you expect to discover.
+Complete the [requirements checklist](/getting-started/requirements). Have an approved initial discovery scope and a known device you can use to verify the results.
 
 <Steps>
   <Step title="Access your organization">
-    Sign in using the REAP URL provided for your organization. Confirm the active organization before you create resources. If you need an account or invitation, contact your REAP administrator.
+    Sign in using your organization's REAP URL and confirm the active **Organization**. If you need an account or invitation, contact your REAP administrator.
   </Step>
-  <Step title="Prepare a cluster and connector">
-    Open **Connectivity & Sites**. Follow [Clusters and connectors](/deployment/clusters-and-connectors) to prepare connectivity for your initial site.
+  <Step title="Create your site">
+    In **Connectivity & Sites**, create the **OnPrem** site that will hold your network inventory.
+
+    Follow [Create a site](/deployment/sites-and-discovery#create-a-site).
   </Step>
-  <Step title="Configure device credentials">
-    Open **Credentials** and prepare the authentication required by your devices. Follow [Device credentials](/deployment/device-credentials) for the setup and assignment checklist.
+  <Step title="Connect the site">
+    Create a cluster, attach the site, and create a connector in that cluster. Download the connector's user data and deploy the REAP AMI in AWS EC2.
+
+    Follow [Clusters and connectors](/deployment/clusters-and-connectors), including the registration and network readiness checks.
   </Step>
-  <Step title="Add a site and discover devices">
-    Create your site, associate the appropriate connectivity, and run discovery for the approved scope. Follow [Sites and device discovery](/deployment/sites-and-discovery).
+  <Step title="Add and assign device credentials">
+    Create the CLI (SSH) and SNMP v3 credentials your devices require. Create enabled assignments that match the intended site and device groups.
+
+    Follow [Device credentials](/deployment/device-credentials).
   </Step>
-  <Step title="Check a known device">
-    Open **Inventory** and find a device you expected to discover. Check its site, management address, and available details before using it as investigation context.
+  <Step title="Create a discovery job and start a run">
+    Open the site's **Discover** tab. Save a job with your approved seeds or CIDR ranges and a **Manual** schedule, then start it from **Discovery Runs**.
+
+    Follow [Create a discovery job](/deployment/sites-and-discovery#create-a-discovery-job). Saving a manual job does not start discovery.
+  </Step>
+  <Step title="Verify a known device">
+    Review the completed run, then open the site's **Inventory**. Check a known device's identity, management address, vendor, and model. Investigate missing devices and authentication or reachability errors before expanding the scope.
+
+    Follow [Verify the results](/deployment/sites-and-discovery#verify-the-results).
   </Step>
   <Step title="Ask your first network question">
-    Open **Chat** and start a conversation. Replace the example site name with your own:
+    Open **Chat**, select **Create thread**, and use **Send message** to ask a question. Replace the example site name with your own:
 
     > What devices have been discovered at the London site? Summarize the available device information and show the evidence behind your answer.
 
-    Review the answer and any supporting evidence or artifacts. Compare at least one result with the device you checked in Inventory.
+    Review the response and available evidence. Compare at least one result with the device you checked in Inventory.
   </Step>
 </Steps>
 
 ## What success looks like
 
-You can identify a known device, ask a question about the discovered network, and understand the evidence that supports the response. If the answer lacks the expected context, check the selected organization, discovery results, and available device data before expanding your deployment.
-
-## Review before publication
-
-Test the complete path in a supported deployment, including organization access, connector readiness, credential assignment, discovery, and a first answer with inspectable evidence. Confirm the setup links contain the exact procedures needed at each step.
+You can find an expected device, ask a question about the discovered network, and inspect the evidence supporting the answer. If information is missing, check the selected organization, discovery results, and available device data before expanding your deployment.
 
 ## Keep going
 
 <Columns cols={2}>
   <Card title="Ask better network questions" icon="comments" href="/capabilities/chat">
-    Scope a question and inspect its answer.
+    Scope a question, inspect the evidence, and follow up.
   </Card>
   <Card title="Connect Slack" icon="slack" href="/integrations/slack">
     Bring network questions into your team's Slack workflow.

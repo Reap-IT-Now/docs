@@ -1,40 +1,45 @@
----
-title: "Requirements"
-description: "Prepare the access, network scope, and deployment information you need."
-tag: "Draft"
-noindex: true
----
-
 <Note>
-  **Draft guide.** This page is prepared for product review. Confirm the workflow against your deployed REAP version before publishing it to customers.
+  **Draft guide.** Reviewed against the supplied discovery walkthrough and REAP UI source. Deployment-specific requirements still need confirmation before customer publication.
 </Note>
 
-## Before you begin
+Prepare these items before you begin the [quickstart](/getting-started/quickstart). The documented setup uses an **OnPrem** site with a REAP connector hosted on **AWS EC2**. The connector's hosting location and the site's type are separate choices.
 
-Start with a small, agreed site or device scope. Confirm these items with the people responsible for REAP, network operations, and infrastructure in your organization.
+## Access and deployment checklist
 
-| Area | Prepare |
+| Area | What you need |
 | --- | --- |
-| REAP access | Your organization's sign-in URL, an account or invitation, and permission to configure the relevant resources. |
-| Deployment | A supported connector deployment environment and the installation instructions supplied for it. |
-| Network scope | The first site, its management addresses or discovery ranges, and the intended connector placement. |
-| Device access | Approved credentials and the permissions needed for the collection tasks you plan to enable. |
-| Ownership | A person who can approve access, diagnose connectivity, and confirm discovered devices. |
+| REAP access | Your organization's sign-in URL, an account or invitation, and permission to create sites, clusters, connectors, credentials, assignments, and discovery jobs. |
+| AWS access | Permission to launch the approved REAP AMI in the intended account and region, using the required networking and instance settings. |
+| Connector deployment | The REAP-provided AMI and approved instance type, storage, access method, and deployment instructions. Obtain these from your REAP representative. |
+| Network scope | The first site's seed management addresses or CIDR ranges, with approval from the network owner. |
+| Device authentication | Credentials already configured on the target devices, with the protocols and privileges needed for discovery and collection. |
+| Validation | A list of expected devices and someone who can verify the resulting inventory. |
 
 ## Network and firewall planning
 
-Confirm the required destinations, ports, protocols, proxy behavior, and DNS requirements for your connector deployment before requesting firewall changes. The rules depend on the deployment and collection methods you use.
+Confirm both network paths before starting discovery:
 
-Ask your REAP representative for the supported sizing and network requirements for your environment. Do not substitute a generic firewall rule set for those deployment instructions.
+- **Connector to REAP:** the destinations, ports, DNS resolution, and any proxy configuration required by your deployment.
+- **Connector to devices:** reachability to the target management addresses over the protocols you will use, including the return route.
+
+For AWS, confirm the VPC, subnet, IP assignment, security groups, and routes with your infrastructure owner. A running EC2 instance alone does not establish that the connector can reach REAP or your devices.
+
+The credential forms default to port **22** for CLI (SSH) and **161** for SNMP v3. Match these values to your device configuration. These defaults are not a complete connector firewall specification.
+
+<Note>
+  Obtain the supported sizing and exact network requirements for your environment before provisioning. Example instance sizes, security groups, and routing commands from a lab walkthrough are not production requirements.
+</Note>
+
+## Plan credential assignments
+
+Prepare separate credentials when device groups use different authentication. Decide whether each assignment should apply to specific sites, existing devices, or the organization, and identify any vendor or model filters.
+
+Saving a credential does not assign it to devices. You will configure both in [Device credentials](/deployment/device-credentials).
 
 ## Choose your first success check
 
-Pick one device or site you already understand. You will use it to confirm discovery and assess your first answer in [Chat](/capabilities/chat).
-
-## Review before publication
-
-The final guide needs the supported deployment options, sizing matrix, exact network requirements, and a tested preflight checklist.
+Pick a known device whose management address, vendor, and model you can verify. After discovery, compare its Inventory record with your expected values, then ask a question about it in Chat.
 
 <Card title="Continue to the quickstart" icon="arrow-right" href="/getting-started/quickstart">
-  Follow the setup sequence and finish with your first network answer.
+  Connect your first site and finish with a network question.
 </Card>
