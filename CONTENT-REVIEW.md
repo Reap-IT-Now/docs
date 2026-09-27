@@ -33,7 +33,7 @@ Each draft is tagged Draft, is noindex, and contains a visible review note. Rema
 
 ## Validation needed
 
-1. Deployment owner: supported runtimes, sizing, network/firewall rules, bootstrap procedure, ready states, credential assignments, and a tested discovery example.
+1. Deployment owner: see the September 27 discovery review for the now-documented AWS setup path and the remaining production requirements and validation checks.
 2. Product owner: match labels and flows to the customer-deployed version. Current source labels are Chat, Change Management, CVEs, Running config, and Topology v2. "Ask REAP" is a search keyword.
 3. Integration owners: complete and test Teams, ServiceNow, and NetBox procedures, permissions, dependencies, expected results, and failure recovery.
 4. Security owner: validate deployment-specific data categories and link approved architecture or data-flow material when available.
@@ -125,3 +125,48 @@ Outstanding publication blockers:
 - Requirements and deployment guides still need supported runtimes, sizing, exact firewall destinations/ports, installation commands, credential assignment behavior, and a tested setup sequence.
 - ServiceNow, Teams, and NetBox remain incomplete draft setup guides. They are not self-service installation instructions.
 - Product workflows have been checked against source, not executed against customer devices. End-to-end validation remains required before removing draft status.
+
+## Discovery guide review — September 27, 2026
+
+Sources:
+- REAP-Getting-Started-Guide(1).docx: complete paragraph/table extraction and all five embedded screenshots.
+- REAP-Discovery-Transcript(1).txt: complete transcript.
+- REAP-Discovery(2).mov: 629.79-second recording, reviewed with frames across the complete timeline, the source screenshots, and the final state. The demonstration is an OnPrem site using a connector hosted on AWS EC2; it does not demonstrate account signup or other connector deployment modes.
+- Read-only reap-ui source at `62b4546c51fa84f71f7b16d8d1363e9876653d91`: ConnectivitySitesPage, CredentialWizard, AssignmentDrawer, DiscoveryJobDrawer, and DiscoveryRunDrawer. Source behavior is not proof of rollout to every customer version.
+
+Content changes:
+- Replaced setup outlines with the recorded sequence: create site, create cluster and attach site, create connector record, download connector user data, deploy the approved REAP AMI, configure credentials and assignments, verify routing/readiness, create a manual job, start a separate run, and verify Inventory.
+- Kept the detailed procedures in the three existing Deployment guides. Quickstart and Setup overview link to their specific sections and avoid repeating the full procedures.
+- Explained credentials versus assignments and discovery jobs versus runs in Key concepts.
+- Corrected the discovery cluster field: it is inherited from the site's attachment and is read-only in the current UI, not a cluster selector.
+- Added the exact CLI/SNMP v3 fields, optional enable password, assignment enablement, scope and filters, run counters, stop action, and outcome checks.
+- Preserved the first network question as the quickstart outcome; Chat is sourced from the existing source-reviewed guide, not claimed to be shown in this discovery recording.
+- Added five screenshots from the supplied guide with alt text and captions identifying example names, subnet, and counts.
+- Renamed overview navigation entries to Setup overview, Choose a workflow, and Available integrations. The five top-level groups and all existing URLs remain intact.
+
+Recording-specific limits retained:
+- The internal AMI name, t2.medium example, 8 GiB storage, existing security group, AWS identifiers, and lab routing script are not customer deployment requirements.
+- The guide asks for the approved AMI/sizing/access/network settings instead of inventing values or exporting internal lab commands.
+- The actual downloaded YAML was not supplied. Its encoding options and bootstrap internals were not inferred.
+- A site's Healthy label is distinct from a connector readiness state; the recording does not establish every final connector state or registration time.
+- The sample run reports 22 devices and 42 links. These are illustrative counts, not acceptance thresholds.
+- Topology is still processing near the end of the recording; no fully populated topology result is promised at run completion.
+- The visible assignment examples cover Arista/Palo Alto, while Aruba also appears in the resulting inventory. The assignment examples do not prove credential coverage for all vendors.
+- The submitted CIDR and resulting inventory include different address ranges. No strict CIDR boundary or neighbor-expansion semantics are asserted.
+- A NetBox error and inconsistent overview counters appear in the recording; completion is assessed from the run and Inventory, without inventing a NetBox prerequisite.
+
+Remaining deployment publication checks (supersede the generic setup blockers in the September 25 audit):
+1. Obtain production-approved AMI distribution, sizing/storage, AWS permissions/access, bootstrap encoding guidance, and exact endpoints, ports, DNS/proxy and routing requirements.
+2. Confirm connector ready/error states and recovery actions against the deployed customer version.
+3. Validate device privilege requirements, assignment overlap/priority precedence and rotation behavior.
+4. Confirm discovery target/neighbor behavior and expected inventory/topology coverage.
+5. Execute the full quickstart, including a first Chat answer with inspectable evidence, in a supported customer environment. This review did not deploy infrastructure or connect to customer devices.
+6. Keep the six revised technical setup/concept pages tagged Draft and noindex until these checks are complete.
+
+Verification:
+- Seven saved page bodies match the prepared copy after Mintlify's whitespace and image-format normalization.
+- All 108 internal page, section, and image links across 26 pages resolve to existing targets; native component tags are balanced.
+- Navigation contains no page label identical to its parent section label. All 17 existing technical drafts retain their Draft/noindex metadata.
+- The five uploaded PNG blobs match the supplied screenshots; no raw video, bootstrap payload, diagnostic terminal, or AWS account screenshot was published.
+- Mintlify build for content commit `92103d4c7f2476a1f8bf60aa914fc9885e80e657` succeeded.
+- Rendered landing page and setup guides were inspected in the Mintlify preview.
