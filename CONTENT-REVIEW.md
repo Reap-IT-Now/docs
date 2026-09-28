@@ -274,3 +274,5 @@ Remaining version-specific checks:
 - Supported AMI, instance sizing, network endpoints/ports, privileges, and a live end-to-end onboarding test remain required before removing the existing Draft metadata. This update is a source/documentation audit, not a connector deployment test.
 
 No engineering repository, production branch, capability list, or custom-domain configuration is changed by this update.
+
+Final reader-flow pass: moved optional scheduling guidance after manual run and result verification, so it no longer interrupts first-time setup. Removed repeated result caveats and example disclaimers, aligned the quickstart site name with the field examples, and made SNMP security-level requirements explicit. Preserved all field tables, existing anchors, prerequisites, and verification steps.

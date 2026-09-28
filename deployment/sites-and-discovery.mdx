@@ -29,8 +29,8 @@ Create the site first, prepare its connectivity and credentials, then create a d
 | **Address line 2** | Optional. Add a building, floor, or suite. |
 | **City** | Optional. Enter the site's city. |
 | **State** | Optional. Enter its state or province. |
-| **Postal code** | Required for an **OnPrem** site in the current form. Enter the site's postal code. |
-| **Country** | Required for an **OnPrem** site in the current form. Enter the site's country. |
+| **Postal code** | Required for an **OnPrem** site. Enter the site's postal code. |
+| **Country** | Required for an **OnPrem** site. Enter the site's country. |
 | **Notes** | Optional. Add context your operations team needs. |
 | **Labels** | Optional. Select **+ Add label**, then enter a key and value for each label. Use **Remove** to remove a row. |
 
@@ -72,12 +72,12 @@ A **job** saves the discovery settings. A **run** executes those settings and re
     | --- | --- |
     | **Site** | Confirm the intended site. It is fixed when opening the form from that site's drawer. |
     | **Connector cluster** | Review the inherited cluster. This field is read-only. If it is missing or wrong, correct the site's cluster attachment and reopen the form. |
-    | **Status** | Select **Active** for the job you intend to run. **Paused** is also available for a job you want to keep paused. |
+    | **Status** | Select **Active** for the job you intend to run. Use **Paused** to keep the job inactive. |
     | **Seed devices or hosts** | Enter approved seed management addresses, one per line or separated by commas. For example, `10.42.0.1` and `10.42.0.2`, replaced with addresses from your own network. |
     | **CIDR ranges (optional)** | Enter approved subnets in CIDR notation, such as `10.42.0.0/24`, one per line or separated by commas. These can provide additional targets when seeds do not cover the site. |
     | **Schedule** | Select **Manual** for your first discovery. See [Schedule options](#schedule-options) before setting up repeated discovery. |
 
-    At least one seed or CIDR is required for this OnPrem workflow. For subnet discovery, enter your approved subnet under **CIDR ranges (optional)** and leave seeds empty if appropriate. The example addresses are illustrative, not required values or a guaranteed discovery boundary.
+    At least one seed or CIDR is required for this OnPrem workflow. For subnet discovery, enter your approved subnet under **CIDR ranges (optional)** and leave seeds empty if appropriate. Replace the example addresses with your own approved targets.
   </Step>
   <Step title="Save and check the job">
     Select the **Save job** disk icon at the top right. Confirm the saved row in **Discovery Jobs**, including **Schedule**, **Scope**, **Status**, and **Updated**.
@@ -89,20 +89,6 @@ A **job** saves the discovery settings. A **run** executes those settings and re
 <Note>
   Saving a manual job does not start discovery. Use **Discovery Runs** to start a separate run.
 </Note>
-
-## Schedule options
-
-Use **Manual** until you have verified the discovery scope and results. To set up repeated discovery, edit the job and select **Recurring**.
-
-| Recurring field | What to choose |
-| --- | --- |
-| **Frequency** | Choose **Hourly**, **Daily**, or **Weekly**. |
-| **Minute past the hour** | For **Hourly**, choose an available minute value. |
-| **Time of day** | For **Daily** or **Weekly**, enter the intended run time. |
-| **Day of week** | For **Weekly**, select the day. |
-| **Timezone** | Select the timezone in which the schedule should run. Check it before saving. |
-
-Select the **Save job** disk icon and review the saved schedule. If your deployment also shows **Auto**, confirm its trigger behavior with your REAP administrator before choosing it; the manual procedure above does not require it.
 
 ## Start and monitor a run
 
@@ -126,7 +112,7 @@ A run marked **succeeded** has finished successfully, but it can still report ze
   <Step title="Check the site's Inventory">
     Open **Inventory** in the same site drawer. Find a known device and compare **Device**, **Mgmt address**, **Role**, **Vendor**, **Model**, **OS**, and **Serial number** with the information you expect, where available.
 
-    Check all intended device groups before expanding discovery. Neither a summary count nor a successful run alone establishes that all expected devices were found.
+    Check all intended device groups before expanding discovery.
 
     The **CMDB Relation View** above Inventory is a separate integration view. A message that no CMDB-capable connection is configured does not prevent you from reviewing discovered devices in the Inventory table below it.
   </Step>
@@ -136,6 +122,20 @@ A run marked **succeeded** has finished successfully, but it can still report ze
     Topology can take additional time to populate after a run completes. If it remains incomplete, compare the run's link results with the relationships you expected.
   </Step>
 </Steps>
+
+## Schedule options
+
+Use **Manual** until you have verified the discovery scope and results. To set up repeated discovery, edit the job and select **Recurring**.
+
+| Recurring field | What to choose |
+| --- | --- |
+| **Frequency** | Choose **Hourly**, **Daily**, or **Weekly**. |
+| **Minute past the hour** | For **Hourly**, choose an available minute value. |
+| **Time of day** | For **Daily** or **Weekly**, enter the intended run time. |
+| **Day of week** | For **Weekly**, select the day. |
+| **Timezone** | Select the timezone in which the schedule should run. Check it before saving. |
+
+Select the **Save job** disk icon and review the saved schedule. If your deployment also shows **Auto**, confirm its trigger behavior with your REAP administrator before choosing it; the manual procedure above does not require it.
 
 ## Troubleshooting
 
