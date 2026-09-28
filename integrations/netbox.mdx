@@ -1,0 +1,41 @@
+---
+title: "NetBox"
+description: "Prepare site and inventory imports from your NetBox source."
+tag: "Draft"
+noindex: true
+---
+
+<Note>
+  **Draft guide.** This page is prepared for product review. Confirm the workflow against your deployed REAP version before publishing it to customers.
+</Note>
+
+Use this guide to prepare the NetBox source and map imported inventory to the intended REAP sites.
+
+## Before you begin
+
+Identify the NetBox instance, approved API access, the source sites you want to import, and the REAP organization that will own the imported inventory.
+
+## Setup guide outline
+
+<Steps>
+  <Step title="Prepare the NetBox connection">
+    Document the supported NetBox versions, authentication method, API permissions, and network requirements.
+  </Step>
+  <Step title="Choose the import scope">
+    In **Connectivity & Sites**, the **Import sites** flow includes NetBox site selection. Confirm the source and choose a small initial scope.
+  </Step>
+  <Step title="Review the mapping">
+    Confirm how source sites and device identities map to REAP, including what happens when a record already exists.
+  </Step>
+  <Step title="Run and inspect the import">
+    Review the import run and any reported failures. Compare a known source device with the resulting REAP inventory record.
+  </Step>
+</Steps>
+
+## What to verify
+
+Confirm device identity, site association, management address, and any supported imported attributes. An imported inventory record is a separate checkpoint from successful device access and collection; verify those using the [deployment guides](/deployment/overview).
+
+## Required source material
+
+Confirm version support, connection fields, import mapping, duplicate handling, update behavior, and retry or rollback guidance using a tested import.

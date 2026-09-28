@@ -1,0 +1,58 @@
+---
+title: "Flow Analytics"
+description: "Understand observed traffic patterns, conversations, endpoints, and services from collected flow records."
+keywords:
+  - "NetFlow"
+  - "IPFIX"
+  - "sFlow"
+  - "network traffic"
+tag: "Draft"
+noindex: true
+---
+
+Flow Analytics shows how traffic is observed across your network using collected IPFIX, NetFlow, and sFlow records. It brings traffic trends, conversations, endpoints, protocols, and flow sources into one workspace.
+
+This helps you answer questions such as “Which endpoints are contributing the most observed traffic?” and “What changed during this time window?” You can narrow an investigation to the busiest conversations or a period of unusual activity before examining the relevant devices and paths.
+
+## What you can do
+
+- **See traffic over time.** Review observed traffic and packet rates for the selected interval.
+- **Find the largest contributors.** Examine the top conversations, endpoints, and protocol and port service groups.
+- **Understand the traffic sources.** Inspect flow exporters and the sampling information available for their records.
+- **Add network context.** Review observed protocols, next hops, autonomous systems, and interface traffic where those fields are present.
+
+Flow Analytics reports observed traffic. Its view depends on which exporters send records, their sampling, and the records available for the selected interval.
+
+## Example: investigate a traffic increase
+
+Choose the period when users reported a slowdown. Review the traffic trend and the top conversations and endpoints, then inspect the relevant flow sources and interface observations.
+
+Use the endpoint and time context to continue with [Topology and Path Tracer](/capabilities/topology-and-path-tracer) or [Monitoring](/capabilities/monitoring). A high observed rate helps focus the investigation; it does not establish the cause of the slowdown by itself.
+
+## How to use Flow Analytics
+
+<Note>
+  **Draft guide.** The functionality is grounded in the product source. Validate these steps against your deployed REAP version before publishing this guide to customers.
+</Note>
+
+Confirm that flow records are being collected for the relevant environment. Device discovery alone does not establish that flow records are available.
+
+1. Select the intended organization and open **Flow Analytics**.
+2. Choose **Last hour**, **Last 3 hours**, or **Last 24 hours**, or set **Start** and **End** and select **Apply range**. The current view accepts intervals up to 24 hours.
+3. Check the applied time range and sampling information.
+4. Review **Traffic over time**, **Top 10 conversations**, **Top 10 endpoints**, and **Top 10 services**.
+5. Inspect **Flow sources**, **Observed protocols**, and **Network dimensions** for the context relevant to your question.
+6. Select **Refresh** when you need to query the selected interval again.
+
+You can drag across the traffic trend to summarize a smaller interval. This selection changes that chart's summary; it does not filter the other dashboard panels.
+
+## Understand the result
+
+- **Observed traffic can overlap.** Multiple flow sources may observe the same traffic. Do not treat the total as a count of unique traffic across the entire network.
+- **Sampling affects interpretation.** Sampling information describes the collected records and does not establish complete coverage.
+- **Service names have a limited meaning.** Service groups use protocol and port information. A displayed registry name is not proof of the application generating the traffic.
+- **Gaps require investigation.** Intervals without returned records do not establish zero traffic. Dashed chart connections do not fill those gaps with measurements.
+
+## Related guides
+
+[Monitoring](/capabilities/monitoring) · [Topology and Path Tracer](/capabilities/topology-and-path-tracer) · [Incident analysis](/capabilities/incident-analysis)

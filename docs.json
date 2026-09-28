@@ -11,15 +11,61 @@
   "navigation": {
     "pages": [
       {
-        "group": "Documentation",
+        "group": "Getting started",
         "pages": [
-          "index"
+          "index",
+          "getting-started/overview",
+          "getting-started/requirements",
+          "getting-started/quickstart"
+        ]
+      },
+      {
+        "group": "Deployment",
+        "pages": [
+          "deployment/overview",
+          "deployment/clusters-and-connectors",
+          "deployment/device-credentials",
+          "deployment/sites-and-discovery"
+        ]
+      },
+      {
+        "group": "Capabilities",
+        "pages": [
+          "capabilities/incident-analysis",
+          "capabilities/topology-and-path-tracer",
+          "capabilities/runbooks",
+          "capabilities/inventory",
+          "capabilities/config-drift",
+          "capabilities/change-management",
+          "capabilities/chat",
+          "capabilities/cve-analysis",
+          "capabilities/flow-analytics",
+          "capabilities/monitoring"
         ]
       },
       {
         "group": "Integrations",
         "pages": [
-          "integrations/slack"
+          "integrations/overview",
+          "integrations/slack",
+          "integrations/servicenow",
+          "integrations/microsoft-teams",
+          "integrations/netbox"
+        ]
+      },
+      {
+        "group": "Security and administration",
+        "pages": [
+          "security/data-collection-and-security",
+          "security/users-and-permissions"
+        ]
+      },
+      {
+        "group": "Resources",
+        "hidden": true,
+        "pages": [
+          "support/troubleshooting",
+          "support/contact"
         ]
       }
     ]
@@ -29,12 +75,7 @@
     "dark": "/logo/reap.svg"
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:support@reapitnow.ai"
-      }
-    ],
+    "links": [],
     "primary": {
       "type": "button",
       "label": "REAP website",
@@ -65,17 +106,38 @@
         ]
       },
       {
-        "header": "Help",
+        "header": "Resources",
         "items": [
           {
+            "label": "Troubleshooting",
+            "href": "/support/troubleshooting"
+          },
+          {
             "label": "Contact support",
-            "href": "mailto:support@reapitnow.ai"
+            "href": "/support/contact"
+          }
+        ]
+      },
+      {
+        "header": "Trust",
+        "items": [
+          {
+            "label": "Data collection and security",
+            "href": "/security/data-collection-and-security"
+          },
+          {
+            "label": "Security statement",
+            "href": "https://reapitnow.ai/security"
+          },
+          {
+            "label": "Privacy",
+            "href": "https://reapitnow.ai/privacy"
           }
         ]
       }
     ]
   },
-  "description": "REAP documentation for connecting integrations and working with network incidents, network questions, and runbooks.",
+  "description": "REAP documentation for getting started, deploying connectors, investigating your network, configuring integrations, and reviewing security.",
   "appearance": {
     "default": "light",
     "strict": false
@@ -86,8 +148,46 @@
   "redirects": [
     {
       "source": "/quickstart",
+      "destination": "/getting-started/quickstart",
+      "permanent": true
+    },
+    {
+      "source": "/capabilities/overview",
+      "destination": "/capabilities/incident-analysis",
+      "permanent": true
+    },
+    {
+      "source": "/capabilities/inventory-and-topology",
+      "destination": "/capabilities/inventory",
+      "permanent": true
+    },
+    {
+      "source": "/capabilities/incidents",
+      "destination": "/capabilities/incident-analysis",
+      "permanent": true
+    },
+    {
+      "source": "/capabilities/cves",
+      "destination": "/capabilities/cve-analysis",
+      "permanent": true
+    },
+    {
+      "source": "/capabilities/configuration-history",
+      "destination": "/capabilities/config-drift",
+      "permanent": true
+    },
+    {
+      "source": "/whats-new",
       "destination": "/",
       "permanent": true
     }
-  ]
+  ],
+  "search": {
+    "prompt": "Search REAP documentation..."
+  },
+  "banner": {
+    "content": "Documentation preview. Guides marked Draft are being prepared for launch.",
+    "dismissible": false,
+    "type": "info"
+  }
 }

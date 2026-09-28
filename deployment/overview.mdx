@@ -1,0 +1,24 @@
+---
+title: "Setup overview"
+sidebarTitle: "Setup overview"
+description: "Follow the setup sequence from a new site to verified device inventory."
+---
+
+Connect a site in four stages: define its scope, prepare connectivity, assign credentials, and run discovery. Each guide below owns the detailed procedure, so you can return to the relevant step when expanding your deployment.
+
+The current walkthrough covers an **OnPrem** site with a connector hosted on **AWS EC2**. Start with the [requirements checklist](/getting-started/requirements) and obtain the deployment details approved for your environment.
+
+## Setup sequence
+
+| Stage | Guide | Check before moving on |
+| --- | --- | --- |
+| 1. Create the site | [Sites and device discovery — create a site](/deployment/sites-and-discovery#create-a-site) | The site exists in the correct organization. |
+| 2. Prepare connectivity | [Clusters and connectors](/deployment/clusters-and-connectors) | The site is attached to the cluster, the connector is deployed, and the required network paths work. |
+| 3. Configure authentication | [Device credentials](/deployment/device-credentials) | Saved credentials have enabled assignments covering the intended devices. |
+| 4. Discover and verify | [Sites and device discovery — create a discovery job](/deployment/sites-and-discovery#create-a-discovery-job) | A run has completed and its results match the expected devices in Inventory. |
+
+## Continue from your results
+
+Use [Chat](/capabilities/chat#how-to-use-chat) to ask your first network question, or explore [Inventory](/capabilities/inventory) and [Topology and Path Tracer](/capabilities/topology-and-path-tracer) to understand the discovered network.
+
+When adding another site, review its connectivity and credential coverage before reusing existing resources.

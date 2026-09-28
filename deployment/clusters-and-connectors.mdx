@@ -1,0 +1,103 @@
+---
+title: "Clusters and connectors"
+description: "Attach a cluster to your site and deploy its REAP connector on AWS EC2."
+tag: "Draft"
+noindex: true
+---
+
+<Note>
+  **Draft guide.** Reviewed against the supplied discovery walkthrough and REAP UI source. Deployment-specific requirements still need confirmation before customer publication.
+</Note>
+
+A connector gives REAP access to your network. A cluster groups connectors and attaches that connectivity to a site. You create these records in REAP, then deploy the connector software in your environment.
+
+This guide covers a REAP connector hosted on **AWS EC2** for an **OnPrem** site.
+
+## Before you begin
+
+- [Create your site](/deployment/sites-and-discovery#create-a-site) in the correct organization.
+- Complete the [requirements checklist](/getting-started/requirements).
+- Obtain the approved REAP AMI, sizing, networking, and instance access settings for your AWS environment.
+
+## Create a cluster and attach the site
+
+<Steps>
+  <Step title="Create the cluster">
+    Open **Connectivity & Sites** and select **Clusters**. Select the **\+** icon to open **Create Cluster**.
+
+    Enter a **Name** your operations team will recognize. Add a **Description** and **Labels** if useful. Leave **Enable internal inspection endpoints** unchecked unless your deployment instructions require it.
+
+    Select **Create Cluster**.
+  </Step>
+  <Step title="Attach your site">
+    Open the new cluster and select its **Sites** tab. Choose the site from the dropdown and select **Attach site**.
+  </Step>
+  <Step title="Verify the association">
+    Return to **Sites**, open your site, and select **Clusters**. Confirm the intended cluster is listed before you create a discovery job.
+  </Step>
+</Steps>
+
+<Frame caption="Attach an existing site from the cluster's Sites tab. Names in this screenshot are examples.">
+  ![Cluster Sites tab with a site dropdown and Attach site action](/images/deployment/attach-site.png)
+</Frame>
+
+## Create the connector record
+
+1. In **Connectivity & Sites**, select **Connectors**, then the **\+** icon.
+2. In **Create Connector**, enter a **Name** and select the **Cluster** you created.
+3. Add an optional **Description** or **Labels**, then select **Create Connector**.
+4. Find the new connector row. Its initial status can be **registering**.
+5. Under **Actions**, select the download icon to download that connector's user data YAML.
+
+You can also open the connector's **Bootstrap** tab and select **Cloud-init** to download its cloud-init bundle.
+
+<Frame caption="The connector record appears before its software is deployed. Download its user data from Actions.">
+  ![Connectors table showing a registering connector and a user data download icon under Actions](/images/deployment/connector-user-data.png)
+</Frame>
+
+## Deploy the connector in AWS EC2
+
+<Steps>
+  <Step title="Launch the approved REAP AMI">
+    In the intended AWS account and region, open the REAP-provided AMI and select **Launch instance from AMI**.
+
+    Enter an instance name and use the instance type, key pair or access method, and storage specified in your approved deployment instructions.
+  </Step>
+  <Step title="Configure networking">
+    In **Network settings**, select the approved VPC, subnet, IP assignment, and security group configuration. Confirm the connector will have the required routes to REAP and the target device management network, including the return path.
+  </Step>
+  <Step title="Supply the connector's user data">
+    Open **Advanced details** and find **User data**. Supply the downloaded YAML contents for this connector using the method specified in your deployment instructions. Preserve the file contents.
+
+    Treat this bootstrap material as sensitive deployment data; do not include it in documentation or support screenshots.
+  </Step>
+  <Step title="Launch and check registration">
+    Review the instance settings and select **Launch instance**. After the instance starts, return to REAP and refresh **Connectors**.
+
+    Check **Status**, **Last seen**, and the **Cluster** association. If the connector remains **registering**, complete the checks below before starting discovery.
+  </Step>
+</Steps>
+
+## Verify readiness
+
+- The connector VM is running and used the bootstrap material for the intended connector.
+- REAP reports the connector with recent **Last seen** information and no unresolved registration error.
+- The site lists the intended cluster, and the cluster contains the deployed connector.
+- The connector can reach REAP and the target management addresses over the required protocols, with working return routes.
+
+A site's **Healthy** label and a running EC2 instance are useful checks, but neither alone verifies device authentication or discovery coverage.
+
+## Troubleshooting
+
+| Symptom | What to check |
+| --- | --- |
+| Connector stays in registering | Correct AMI and user data, successful instance startup, and the required connector-to-REAP network path. |
+| No cluster appears in the discovery form | Open the intended cluster's **Sites** tab and verify the site attachment. The job inherits this association. |
+| Connector is visible but devices are unreachable | VPC and subnet routes, security groups, device-side access rules, target management addresses, and return routing. |
+| Devices respond but authentication fails | Continue with [device credentials and assignments](/deployment/device-credentials). |
+
+If the issue remains, [contact support](/support/contact) with the connector identifier, status, relevant error, and time, without secret values.
+
+## Next step
+
+[Configure and assign device credentials](/deployment/device-credentials), then [create a discovery job](/deployment/sites-and-discovery#create-a-discovery-job).

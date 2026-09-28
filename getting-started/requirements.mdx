@@ -1,0 +1,52 @@
+---
+title: "Requirements"
+description: "Prepare access, AWS connector deployment, network paths, and device authentication."
+tag: "Draft"
+noindex: true
+---
+
+<Note>
+  **Draft guide.** Reviewed against the supplied discovery walkthrough and REAP UI source. Deployment-specific requirements still need confirmation before customer publication.
+</Note>
+
+Prepare these items before you begin the [quickstart](/getting-started/quickstart). The documented setup uses an **OnPrem** site with a REAP connector hosted on **AWS EC2**. The connector's hosting location and the site's type are separate choices.
+
+## Access and deployment checklist
+
+| Area | What you need |
+| --- | --- |
+| REAP access | Your organization's sign-in URL, an account or invitation, and permission to create sites, clusters, connectors, credentials, assignments, and discovery jobs. |
+| AWS access | Permission to launch the approved REAP AMI in the intended account and region, using the required networking and instance settings. |
+| Connector deployment | The REAP-provided AMI and approved instance type, storage, access method, and deployment instructions. Obtain these from your REAP representative. |
+| Network scope | The first site's seed management addresses or CIDR ranges, with approval from the network owner. |
+| Device authentication | Credentials already configured on the target devices, with the protocols and privileges needed for discovery and collection. |
+| Validation | A list of expected devices and someone who can verify the resulting inventory. |
+
+## Network and firewall planning
+
+Confirm both network paths before starting discovery:
+
+- **Connector to REAP:** the destinations, ports, DNS resolution, and any proxy configuration required by your deployment.
+- **Connector to devices:** reachability to the target management addresses over the protocols you will use, including the return route.
+
+For AWS, confirm the VPC, subnet, IP assignment, security groups, and routes with your infrastructure owner. A running EC2 instance alone does not establish that the connector can reach REAP or your devices.
+
+The credential forms default to port **22** for CLI (SSH) and **161** for SNMP v3. Match these values to your device configuration. These defaults are not a complete connector firewall specification.
+
+<Note>
+  Obtain the supported sizing and exact network requirements for your environment before provisioning. Example instance sizes, security groups, and routing commands from a lab walkthrough are not production requirements.
+</Note>
+
+## Plan credential assignments
+
+Prepare separate credentials when device groups use different authentication. Decide whether each assignment should apply to specific sites, existing devices, or the organization, and identify any vendor or model filters.
+
+Saving a credential does not assign it to devices. You will configure both in [Device credentials](/deployment/device-credentials).
+
+## Choose your first success check
+
+Pick a known device whose management address, vendor, and model you can verify. After discovery, compare its Inventory record with your expected values, then ask a question about it in Chat.
+
+<Card title="Continue to the quickstart" icon="arrow-right" href="/getting-started/quickstart">
+  Connect your first site and finish with a network question.
+</Card>

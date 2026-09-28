@@ -1,0 +1,44 @@
+---
+title: "ServiceNow"
+description: "Prepare the ticketing integration used by REAP's ServiceNow incident workflow."
+tag: "Draft"
+noindex: true
+---
+
+<Note>
+  **Draft guide.** This page is prepared for product review. Confirm the workflow against your deployed REAP version before publishing it to customers.
+</Note>
+
+The [Slack incident workflow](/integrations/slack) depends on a configured ServiceNow integration. Complete the ticketing setup before testing incident notifications and ticket assignment in Slack.
+
+## Before you begin
+
+Work with your ServiceNow administrator to identify the instance, integration account, required permissions, and the scope of the initial test. Confirm which REAP organization will own the connection.
+
+## Setup guide outline
+
+<Steps>
+  <Step title="Prepare ServiceNow access">
+    Confirm the supported authentication method and the minimum permissions for the specific incident workflow.
+  </Step>
+  <Step title="Create the REAP connection">
+    Open **Integrations** and configure the ServiceNow connection using the fields provided for your deployment.
+  </Step>
+  <Step title="Verify the connection">
+    Use the available connection test and review any reported failures.
+  </Step>
+  <Step title="Validate the incident workflow">
+    Use a controlled test incident to confirm the required direction of data flow and any intended ticket updates.
+  </Step>
+  <Step title="Connect the collaboration channel">
+    Follow the [Slack guide](/integrations/slack) to configure the relevant targets and account links.
+  </Step>
+</Steps>
+
+## Completion criteria
+
+A test incident reaches the intended REAP workflow, the expected ticket context is available, and any permitted action produces the intended result in ServiceNow.
+
+## Required source material
+
+The final procedure needs supported authentication details, exact instance fields, required ServiceNow roles or scopes, event or polling setup, writeback behavior, and a tested failure-recovery example. Do not publish these steps as a complete installation procedure until those details are verified.

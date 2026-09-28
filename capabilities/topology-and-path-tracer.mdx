@@ -1,0 +1,64 @@
+---
+title: "Topology and Path Tracer"
+description: "Explore network relationships and trace a path between selected endpoints using the available evidence."
+keywords:
+  - "Topology v2"
+  - "Path Tracer"
+  - "network topology"
+  - "network path"
+tag: "Draft"
+noindex: true
+---
+
+Topology shows the devices and relationships available for a selected network scope. Path Tracer focuses that view on a specific question: how does the network connect a source to a destination?
+
+Together, they help you move from a broad network view to the path relevant to an investigation. You can examine surrounding relationships, choose the intended endpoints, and use the returned path and evidence to decide where to investigate next.
+
+## What you can do
+
+- **Explore network context.** Choose a system or saved topology view and inspect its nodes, relationships, and available layers.
+- **Focus on a connection.** Select a source and destination in Path Tracer, with optional destination port and protocol.
+- **Set the time context.** Use the available current or historical view to relate the network context to the period you are investigating.
+- **Resolve ambiguous endpoints.** Review suggested matches and clarification choices so the trace uses the intended scope.
+
+The result depends on the topology and path evidence available to REAP. A rendered path does not by itself establish that an application is working or that every policy and forwarding decision has been verified.
+
+## Example: investigate access to a service
+
+Suppose a branch device cannot reach a service. Use topology to establish the network context, then trace from the intended source to the destination. For an HTTPS investigation, you can specify destination port `443` and protocol `6` for TCP.
+
+Review the returned path, its time context, and any evidence or limitations. Use those findings to choose a targeted [Chat question](/capabilities/chat) or [runbook](/capabilities/runbooks).
+
+## How to use Topology and Path Tracer
+
+<Note>
+  **Draft guide.** The functionality is grounded in the product source. Validate these steps against your deployed REAP version before publishing this guide to customers.
+</Note>
+
+Confirm that discovery and collection cover the devices and endpoints involved.
+
+### Explore topology
+
+1. Open **Topology v2**.
+2. Choose the appropriate system or saved view.
+3. Set the scope required by that view.
+4. Inspect the relevant nodes and relationships. Open **Layers** to review the available layers.
+5. Check the view's time context before relating it to an incident or change.
+
+### Trace a path
+
+1. Open **Path Tracer**.
+2. Enter **Source** and **Destination**. Review the suggested matches and select the intended endpoints.
+3. If relevant, enter **Destination port** and the numeric **Protocol**.
+4. Choose an **Evidence level**. The available options are **Best available**, **Forwarding supported**, and **Policy evaluated**. A requested level does not guarantee that the required evidence is available.
+5. Set **Time** to **Live**, or select **As of** and provide the relevant timestamp.
+6. Select **Trace Path**. If REAP asks you to clarify an endpoint, choose the intended match to continue.
+7. Inspect the returned path and any status or explanatory message.
+
+## Understand the result
+
+Check the selected endpoints, scope, time, and evidence before drawing a conclusion. If the result is incomplete or no graph is available, review the explanation and collection coverage. A missing relationship or an unavailable trace is not proof that no network path exists.
+
+## Related guides
+
+[Inventory](/capabilities/inventory) · [Incident analysis](/capabilities/incident-analysis) · [Chat](/capabilities/chat)

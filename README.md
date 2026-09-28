@@ -1,55 +1,35 @@
-# Mintlify Starter Kit
+# REAP documentation
 
-Use the starter kit to get your docs deployed and ready to customize.
+Customer documentation for REAP, built with Mintlify. This repository is separate from REAP engineering repositories.
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+## Structure
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
+- Getting started: concepts, requirements, and a first-question quickstart.
+- Deployment: clusters and connectors, credentials, sites, and discovery.
+- Capabilities: a flat list using product UI names.
+- Integrations: Slack, ServiceNow, Microsoft Teams, and NetBox.
+- Security and administration: data collection, security resources, and access.
+- Support and What's new: utility pages linked from the landing page and footer.
 
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
+## Current review edition
 
-## AI-assisted writing
+The documentation-structure review branch contains 26 pages, including 17 technical drafts. Its banner distinguishes the preview from published customer documentation. The existing Slack guide is preserved.
 
-Set up your AI coding tool to work with Mintlify:
+See [CONTENT-REVIEW.md](CONTENT-REVIEW.md) for missing source material and publication requirements. Draft metadata and hidden navigation do not provide access control.
 
-```bash
-npx skills add https://mintlify.com/docs
-```
+## Editing
 
-This command installs Mintlify's documentation skill for your configured AI tools like Claude Code, Cursor, Windsurf, and others. The skill includes component reference, writing standards, and workflow guidance.
+Use the Mintlify editor for pages, navigation, and configuration. Keep landing-page styling scoped to `.reap-home` in `style.css`. Follow [AGENTS.md](AGENTS.md) for content standards.
 
-See the [AI tools guides](/ai-tools) for tool-specific setup.
+## Review and publish
 
-## Development
+Check exact product labels and workflows against the customer-deployed version. Verify prerequisites, expected results, permissions, and troubleshooting. Remove editorial notes and draft metadata only after verification.
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
+Before publishing, remove the review banner, update What's new, and ensure every visible link leads to a completed guide. Keep unpublished drafts excluded from the production build using `.mintignore`; removing them from navigation alone is not sufficient.
 
-```
-npm i -g mint
-```
+Require a successful Mintlify build, working internal links and anchors, and visual checks of the landing page and changed guides. Merge a reviewed change into the deployment branch to publish.
 
-Run the following command at the root of your documentation, where your `docs.json` is located:
+## Resources
 
-```
-mint dev
-```
-
-View your local preview at `http://localhost:3000`.
-
-## Publishing changes
-
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
-
-## Need help?
-
-### Troubleshooting
-
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
-
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
+- [Mintlify documentation](https://www.mintlify.com/docs)
+- [Published REAP documentation](https://reap-731233b9.mintlify.io/)

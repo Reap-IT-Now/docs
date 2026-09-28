@@ -1,0 +1,107 @@
+---
+title: "Sites and device discovery"
+description: "Create an OnPrem site, configure a discovery job, start a run, and verify the results."
+tag: "Draft"
+noindex: true
+---
+
+<Note>
+  **Draft guide.** Reviewed against the supplied discovery walkthrough and REAP UI source. Deployment-specific requirements still need confirmation before customer publication.
+</Note>
+
+A site organizes the network you want to discover. Discovery identifies devices and gathers the information you can inspect in Inventory and use in REAP workflows.
+
+Create the site first. After you attach connectivity and assign credentials, return here to create a discovery job and start a run. This guide covers an **OnPrem** site.
+
+## Create a site
+
+1. Select the correct **Organization**.
+2. Open **Connectivity & Sites**, select **Sites**, and select **\+** to open **Create Site**.
+3. Enter a **Name** and set **Site type** to **OnPrem**.
+4. Add the address, city, state, postal code, country, **Notes**, or **Labels** if useful for your team.
+5. Select **Create Site** and confirm the site appears in the list.
+
+## Prepare the site for discovery
+
+Before you create a job:
+
+- [Create a cluster, attach this site, and deploy a connector](/deployment/clusters-and-connectors).
+- Confirm the connector can reach REAP and the intended management network, including the return path.
+- [Create device credentials and enabled assignments](/deployment/device-credentials) for the target device groups.
+- Agree on the initial seed management addresses or CIDR ranges, and identify known devices to check afterward.
+
+## Create a discovery job
+
+A **job** saves the discovery settings. A **run** executes those settings and records the result.
+
+<Steps>
+  <Step title="Open the site's discovery workspace">
+    In **Connectivity & Sites**, open your site and select **Discover**. In **Discovery Jobs**, select **\+**.
+  </Step>
+  <Step title="Confirm the site and cluster">
+    Verify **Site**, the inherited **Connector cluster**, and **Status**. Use **Active** for this job.
+
+    The cluster comes from the site's attachment. If it is missing or incorrect, correct the association under the cluster's **Sites** tab before continuing.
+  </Step>
+  <Step title="Enter discovery targets">
+    Supply approved addresses under **Seed devices or hosts**, subnet ranges under **CIDR ranges (optional)**, or both. Use one entry per line or comma-separated entries.
+
+    At least one seed or CIDR is required for this OnPrem workflow. For subnet discovery, enter your approved subnet in the CIDR field; you can leave the seeds empty.
+  </Step>
+  <Step title="Save a manual job">
+    Under **Schedule**, select **Manual** for your first run, then select the save icon in the top-right corner.
+
+    Confirm the job appears in **Discovery Jobs**. The form also offers **Recurring**; first verify your discovery scope and results with a manual run.
+  </Step>
+</Steps>
+
+<Frame caption="Example discovery settings: the site's cluster, a CIDR target, and a Manual schedule. Replace the lab subnet with your approved targets.">
+  ![Discovery job form with Site, inherited Connector cluster, Active status, seed and CIDR fields, and Manual schedule](/images/deployment/discovery-job.png)
+</Frame>
+
+<Note>
+  Saving a manual job does not start discovery. Start a separate run using the steps below.
+</Note>
+
+## Start and monitor a run
+
+1. Select the saved job in **Discovery Jobs**.
+2. In **Discovery Runs**, select **\+** to open **Start discovery run**.
+3. Review the selected job, **Site**, **Seeds**, **Targets**, and **Schedule**.
+4. Select **Start Run**.
+5. Open the run details and monitor its status, progress, and live events.
+
+The run shows **Devices discovered**, **Devices updated**, **Unreachable**, and **Links discovered**. If you need to interrupt an active run, use **Stop run**, then review its state and available results before deciding whether to retry.
+
+## Verify the results
+
+A successful run reports **succeeded** and **100% complete**. Check the details as well as the final state:
+
+- Review reported failures or unreachable devices.
+- Open the site's **Inventory** and find devices you expected to discover.
+- Confirm device identities, management addresses, roles, vendors, and models against your known environment.
+- Compare the resulting inventory with the approved discovery scope.
+- Open **Topology** to inspect available relationships. Its view can take additional time to populate after the discovery run completes.
+
+Use the run details and Inventory as the completion checks. A summary device counter alone does not establish that all expected devices were discovered.
+
+<Frame caption="A completed example run shows its status and discovery counters. Your counts depend on your network and discovery results.">
+  ![Discovery run showing succeeded status, 100 percent completion, and device, unreachable, and link counters](/images/deployment/discovery-results.png)
+</Frame>
+
+## Troubleshooting
+
+| Symptom | What to check |
+| --- | --- |
+| Job cannot be saved because a cluster is missing | Attach the site to the intended cluster, then reopen the job form. |
+| A saved manual job has no results | Start a run from **Discovery Runs**; job creation alone does not execute it. |
+| Devices are unreachable | Connector readiness, management addresses, routing in both directions, and protocol access rules. |
+| Authentication errors appear | Credential values, device permissions, enabled assignments, scopes, and filters. |
+| Expected devices are missing | Job targets, run events, credential coverage for each vendor, and connector reachability. |
+| Inventory is populated but topology is incomplete | Allow processing time, refresh, and inspect the run's link results. If it remains incomplete, contact support. |
+
+When [contacting support](/support/contact), include the site, job and run identifiers, time, expected device scope, and relevant errors. Exclude credentials and bootstrap material.
+
+## Next step
+
+[Ask your first network question in Chat](/capabilities/chat#how-to-use-chat), or explore [Inventory](/capabilities/inventory) and [Topology and Path Tracer](/capabilities/topology-and-path-tracer).
