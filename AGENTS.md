@@ -3,14 +3,14 @@
 This repository is the standalone Mintlify documentation site for REAP. Only change documentation and documentation assets here.
 
 ## Structure
-Keep the main navigation to Getting started, Deployment, Capabilities, Integrations, and Security and administration. Keep Capabilities flat. Support and What's new are utility links.
+Keep the main navigation to Getting started, Deployment, Capabilities, Integrations, and Security and administration. Keep Capabilities flat. Include exactly these ten pages in this order unless the user changes the product scope: Incident analysis; Topology and Path Tracer; Runbooks; Inventory; Config drift; Change management; Chat; CVE analysis; Flow Analytics; Monitoring. Do not add a separate Capabilities overview page or combine Inventory with Topology. Support and What's new are utility links.
 
 The quickstart leads from organization access through connectivity, credentials, site discovery, and a first network question with evidence. Link to canonical deployment guides rather than duplicating their procedures.
 
 ## Voice and naming
 Use active voice, second person, concise paragraphs, and sentence case headings. Preserve exact UI labels when naming product controls or features. Bold UI controls and use code formatting for commands, paths, and identifiers.
 
-Use REAP for the brand and Capabilities for the feature section. Keep search synonyms where customers may use an older or informal name.
+Use REAP for the brand and Capabilities for the feature section. Use the user-approved capability page names above, and preserve the actual UI labels inside procedures. Explain each capability's functionality, value, and a practical example before its usage steps. Keep search synonyms where customers may use an older or informal name.
 
 ## Accuracy and publishing
 Use supplied guides and verified behavior as the source of truth. Never invent deployment sizes, firewall rules, permissions, security claims, supported integrations, or release notes.
