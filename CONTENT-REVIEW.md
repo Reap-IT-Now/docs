@@ -7,7 +7,7 @@ This branch contains the complete documentation structure and a designed landing
 - Branded landing page, navigation, category entry pages, support pages, and direct security resources.
 - Existing Slack integration guide retained without edits.
 - Security page links to the current public statements instead of inventing compliance, retention, or collection guarantees.
-- What's new distinguishes documentation updates from product releases.
+- The documentation home provides a guided setup path and direct access to all ten capabilities, integrations, security, and support. There is no What's new page.
 
 ## Technical drafts
 
@@ -76,7 +76,7 @@ No files in REAP engineering repositories were modified.
 - Validate narrow-screen navigation and layouts on actual target devices.
 - Establish the custom documentation domain separately; this work does not configure docs.reapitnow.ai.
 - Treat the security page as an entry point to published policies, not a field-level collection matrix. Confirm data categories, destinations, retention/deletion, residency, and AI processing/subprocessor details before making deployment-specific claims.
-- On production promotion, remove the review banner, update the review-edition note in What's new, and exclude any unpublished drafts from both navigation and the production build.
+- On production promotion, remove the review banner and exclude any unpublished drafts from both navigation and the production build.
 
 ## Capability content review — September 25, 2026
 
@@ -230,3 +230,17 @@ Corrected the latest public What's new date from September 28 to September 27 to
 Validation passed for the requested ten titles and exact order, ten capability files with no legacy files, 118 internal page/section/image links across 28 pages, six redirects including the existing quickstart redirect, balanced native components, and Draft/noindex on every capability page. The landing page and Monitoring table were inspected in dark mode, and the corrected update was verified in light mode. Saved content matches the intended date correction, and Mintlify build `0dd0d89399be423f5be8916946b99becec7a41b8` succeeded.
 
 This is a documentation/source audit, not a customer deployment test. Existing publication blockers remain: deployed-version workflow validation, production deployment requirements, and incomplete draft integration/administration guidance. No production documentation or engineering repository was changed.
+
+## Documentation home redesign: September 28, 2026 (UTC)
+
+Replaced the landing page with a focused documentation entry point: a branded quickstart panel, three setup milestones, navigation cards for Capabilities, Integrations, and Security and administration, a compact directory of all ten requested capabilities in the requested order, and a support strip. Capability descriptions explain their purpose. The Capabilities card jumps to that directory on the home page.
+
+Removed What's new from the page files, navigation, footer, and support links. Its former URL permanently redirects to the root documentation home. This supersedes the earlier What's new instructions and audit entries. The root remains the default documentation entry point. The preview banner now states that Draft guides are being prepared for launch.
+
+Verification:
+- All 129 internal page, section, and image links across 27 MDX pages resolve; native component tags are balanced.
+- The ten capability pages, their requested sidebar order, technical draft metadata, and the existing Slack guide are unchanged.
+- Mintlify deployment for `4e93a2cbc304bf7cf5182ea01bb21def327eb360` succeeded.
+- Inspected the home page and capability directory in light and dark mode. Confirmed the Capabilities card jumps to the directory and the Runbooks directory entry opens its guide. Corrected headline wrapping and spacing in Mintlify's rendered heading wrapper.
+- Layout CSS is scoped to the documentation home. Responsive breakpoints are provided; this review did not test actual mobile devices.
+- No engineering repository, production branch, or custom-domain configuration was changed. Existing technical publication checks remain outstanding.
