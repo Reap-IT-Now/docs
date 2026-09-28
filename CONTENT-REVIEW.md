@@ -220,3 +220,13 @@ Verification:
 - Rendered landing page, capability sidebar, and the new/separated capability routes were inspected. The Slack guide is unchanged in the GitHub comparison.
 
 Before customer publication, validate Path Tracer against representative endpoints and returned evidence, Flow Analytics against supported exporter data, and Monitoring against reporting devices and condition states. The earlier deployment and integration publication checks still apply. No engineering repository or production docs changes were made.
+
+## Capability sanity check: September 27, 2026 (Pacific time)
+
+Reviewed the saved ten-page capability edition against current reap-ui source at `d3d322fba4f9c727c5c6071ed596875150c75f31`. Rechecked the Runbooks creation, launch, scheduling, and approval controls; Chat entry controls; Change Management plan, baseline, and post-check controls; incident evidence sections; CVE assessment labels; and configuration comparison behavior. Rechecked the source already used for Inventory, Topology and Path Tracer, Flow Analytics, and Monitoring. No additional source-label or procedural mismatch was identified in this review.
+
+Corrected the latest public What's new date from September 28 to September 27 to reflect the user's publication date in America/Los_Angeles. Historical internal review dates above used UTC where not otherwise stated.
+
+Validation passed for the requested ten titles and exact order, ten capability files with no legacy files, 118 internal page/section/image links across 28 pages, six redirects including the existing quickstart redirect, balanced native components, and Draft/noindex on every capability page. The landing page and Monitoring table were inspected in dark mode, and the corrected update was verified in light mode. Saved content matches the intended date correction, and Mintlify build `0dd0d89399be423f5be8916946b99becec7a41b8` succeeded.
+
+This is a documentation/source audit, not a customer deployment test. Existing publication blockers remain: deployed-version workflow validation, production deployment requirements, and incomplete draft integration/administration guidance. No production documentation or engineering repository was changed.
