@@ -65,8 +65,7 @@
         "hidden": true,
         "pages": [
           "support/troubleshooting",
-          "support/contact",
-          "whats-new"
+          "support/contact"
         ]
       }
     ]
@@ -78,8 +77,8 @@
   "navbar": {
     "links": [
       {
-        "href": "/whats-new",
-        "label": "What's new"
+        "href": "/",
+        "label": "Documentation"
       },
       {
         "label": "Support",
@@ -118,10 +117,6 @@
       {
         "header": "Resources",
         "items": [
-          {
-            "label": "What's new",
-            "href": "/whats-new"
-          },
           {
             "label": "Troubleshooting",
             "href": "/support/troubleshooting"
@@ -189,13 +184,18 @@
       "source": "/capabilities/configuration-history",
       "destination": "/capabilities/config-drift",
       "permanent": true
+    },
+    {
+      "source": "/whats-new",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "search": {
     "prompt": "Search REAP documentation..."
   },
   "banner": {
-    "content": "Documentation review preview. Guides marked Draft need product validation. [View published documentation](https://reap-731233b9.mintlify.io/).",
+    "content": "Documentation preview. Guides marked Draft are being prepared for launch.",
     "dismissible": false,
     "type": "info"
   }

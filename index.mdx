@@ -1,53 +1,136 @@
 ---
 title: "REAP documentation"
-description: "Connect your network. Understand what changed. Take the next step with confidence."
+description: "Guides to connect your network, investigate issues, and build repeatable workflows."
 sidebarTitle: "Documentation home"
 mode: "wide"
+hideFooterPagination: true
 ---
 
 <div className="reap-home">
-  <div className="reap-start">
-    <div className="reap-eyebrow">FROM SIGNALS TO ANSWERS</div>
-    <h2>Start with your first network answer</h2>
-    <p>Set up access, connect a site, discover your devices, and ask REAP a question grounded in your network.</p>
+  <section className="reap-hero" aria-labelledby="reap-start-title">
+    <div className="reap-hero-copy">
+      <span className="reap-eyebrow">START WITH REAP</span>
+      <h2 id="reap-start-title"><span>Your first site.</span> <span>Your first answer.</span></h2>
+      <p>Connect a site, discover your devices, and ask a network question. The quickstart takes you through each step.</p>
 
-    <div className="reap-start-actions">
-      <a className="reap-primary-link" href="/getting-started/quickstart">Start the quickstart <span aria-hidden="true">→</span></a>
-      <a className="reap-text-link" href="/deployment/overview">Explore deployment guides <span aria-hidden="true">→</span></a>
+      <div className="reap-hero-actions">
+        <a className="reap-primary-link" href="/getting-started/quickstart">Start the quickstart <span aria-hidden="true">→</span></a>
+        <a className="reap-secondary-link" href="/getting-started/requirements">Check requirements <span aria-hidden="true">→</span></a>
+      </div>
     </div>
 
-    <div className="reap-journey" aria-label="Setup journey">
-      <span><b>01</b> Access REAP</span>
-      <span><b>02</b> Connect a site</span>
-      <span><b>03</b> Ask a question</span>
+    <ol className="reap-setup-path" aria-label="Your setup path">
+      <li>
+        <a href="/getting-started/overview">
+          <span className="reap-step-number" aria-hidden="true">01</span>
+          <span><strong>Understand the essentials</strong><span>Sites, clusters, connectors, and discovery.</span></span>
+          <span className="reap-step-arrow" aria-hidden="true">→</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="/deployment/overview">
+          <span className="reap-step-number" aria-hidden="true">02</span>
+          <span><strong>Connect your network</strong><span>Set up connectivity, credentials, and devices.</span></span>
+          <span className="reap-step-arrow" aria-hidden="true">→</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="/capabilities/chat#how-to-use-chat">
+          <span className="reap-step-number" aria-hidden="true">03</span>
+          <span><strong>Ask your first question</strong><span>Explore your network through Chat.</span></span>
+          <span className="reap-step-arrow" aria-hidden="true">→</span>
+        </a>
+      </li>
+    </ol>
+  </section>
+
+  <div className="reap-entry-points">
+    <Columns cols={3}>
+      <Card title="Capabilities" icon="compass" href="/#capabilities" arrow>
+        Find the right guide for the task in front of you.
+      </Card>
+
+      <Card title="Integrations" icon="plug" href="/integrations/overview" arrow>
+        Connect REAP to your team's tools.
+      </Card>
+
+      <Card title="Security and administration" icon="shield-halved" href="/security/data-collection-and-security" arrow>
+        Review data collection, security, and access.
+      </Card>
+    </Columns>
+  </div>
+
+  <section className="reap-capabilities" aria-labelledby="capabilities">
+    <div className="reap-section-heading">
+      <div>
+        <span className="reap-section-kicker">WORK WITH YOUR NETWORK</span>
+        <h2 id="capabilities">Explore REAP capabilities</h2>
+      </div>
+
+      <p>Understand what each capability does, then follow the guide.</p>
     </div>
-  </div>
 
-  <div className="reap-section-intro">
-    <h2>Find your next step</h2>
-    <p>Practical guides, organized around the work you need to do.</p>
-  </div>
+    <div className="reap-capability-list">
+      <a className="reap-capability-link" href="/capabilities/incident-analysis">
+        <span><strong>Incident analysis</strong><span>Bring incident context and network evidence together.</span></span>
+        <span className="reap-link-arrow" aria-hidden="true">→</span>
+      </a>
 
-  <Columns cols={3}>
-    <Card title="Capabilities" icon="compass" href="/capabilities/incident-analysis" arrow>
-      Understand your network, investigate incidents, run repeatable checks, and validate changes.
-      <span className="reap-card-cta">Explore capabilities <span aria-hidden="true">→</span></span>
-    </Card>
+      <a className="reap-capability-link" href="/capabilities/topology-and-path-tracer">
+        <span><strong>Topology and Path Tracer</strong><span>Explore connections and trace the path between endpoints.</span></span>
+        <span className="reap-link-arrow" aria-hidden="true">→</span>
+      </a>
 
-    <Card title="Integrations" icon="plug" href="/integrations/overview" arrow>
-      Bring REAP into your team's incident and collaboration workflows. Start with Slack.
-      <span className="reap-card-cta">Connect your tools <span aria-hidden="true">→</span></span>
-    </Card>
+      <a className="reap-capability-link" href="/capabilities/runbooks">
+        <span><strong>Runbooks</strong><span>Create a procedure once and reuse it across supported vendors.</span></span>
+        <span className="reap-link-arrow" aria-hidden="true">→</span>
+      </a>
 
-    <Card title="Security and administration" icon="shield-halved" href="/security/data-collection-and-security" arrow>
-      Review data collection scope, find security resources, and manage organization access.
-      <span className="reap-card-cta">Review data and security <span aria-hidden="true">→</span></span>
-    </Card>
-  </Columns>
+      <a className="reap-capability-link" href="/capabilities/inventory">
+        <span><strong>Inventory</strong><span>Find devices and inspect their collected details.</span></span>
+        <span className="reap-link-arrow" aria-hidden="true">→</span>
+      </a>
 
-  <div className="reap-home-footer">
-    <a href="/whats-new"><strong>What's new</strong><span>See documentation updates <span aria-hidden="true">→</span></span></a>
-    <a href="/support/troubleshooting"><strong>Need a hand?</strong><span>Troubleshoot setup and common issues <span aria-hidden="true">→</span></span></a>
-    <a href="/support/contact"><strong>Talk to our team</strong><span>Get help with your REAP environment <span aria-hidden="true">→</span></span></a>
+      <a className="reap-capability-link" href="/capabilities/config-drift">
+        <span><strong>Config drift</strong><span>Compare configurations and understand what changed.</span></span>
+        <span className="reap-link-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a className="reap-capability-link" href="/capabilities/change-management">
+        <span><strong>Change management</strong><span>Plan validation and capture evidence before and after a change.</span></span>
+        <span className="reap-link-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a className="reap-capability-link" href="/capabilities/chat">
+        <span><strong>Chat</strong><span>Ask network questions in natural language.</span></span>
+        <span className="reap-link-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a className="reap-capability-link" href="/capabilities/cve-analysis">
+        <span><strong>CVE analysis</strong><span>Review vulnerability exposure with device and configuration context.</span></span>
+        <span className="reap-link-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a className="reap-capability-link" href="/capabilities/flow-analytics">
+        <span><strong>Flow Analytics</strong><span>Explore observed traffic, conversations, and endpoints.</span></span>
+        <span className="reap-link-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a className="reap-capability-link" href="/capabilities/monitoring">
+        <span><strong>Monitoring</strong><span>Review telemetry, device health, and evaluated conditions.</span></span>
+        <span className="reap-link-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <div className="reap-help">
+    <div><strong>Need help moving forward?</strong><span>Find a next step or get in touch with the REAP team.</span></div>
+
+    <div className="reap-help-links">
+      <a href="/support/troubleshooting">Troubleshooting <span aria-hidden="true">→</span></a>
+      <a href="/support/contact">Contact support <span aria-hidden="true">→</span></a>
+    </div>
   </div>
 </div>
