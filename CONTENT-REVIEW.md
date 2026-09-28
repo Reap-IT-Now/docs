@@ -17,13 +17,16 @@ This branch contains the complete documentation structure and a designed landing
 - `deployment/clusters-and-connectors.mdx`: Clusters and connectors.
 - `deployment/device-credentials.mdx`: Device credentials.
 - `deployment/sites-and-discovery.mdx`: Sites and device discovery.
-- `capabilities/inventory-and-topology.mdx`: Inventory and topology.
-- `capabilities/chat.mdx`: Chat.
-- `capabilities/incidents.mdx`: Incidents.
+- `capabilities/incident-analysis.mdx`: Incident analysis.
+- `capabilities/topology-and-path-tracer.mdx`: Topology and Path Tracer.
 - `capabilities/runbooks.mdx`: Runbooks.
-- `capabilities/change-management.mdx`: Change Management.
-- `capabilities/cves.mdx`: CVEs.
-- `capabilities/configuration-history.mdx`: Running config.
+- `capabilities/inventory.mdx`: Inventory.
+- `capabilities/config-drift.mdx`: Config drift.
+- `capabilities/change-management.mdx`: Change management.
+- `capabilities/chat.mdx`: Chat.
+- `capabilities/cve-analysis.mdx`: CVE analysis.
+- `capabilities/flow-analytics.mdx`: Flow Analytics.
+- `capabilities/monitoring.mdx`: Monitoring.
 - `integrations/servicenow.mdx`: ServiceNow.
 - `integrations/microsoft-teams.mdx`: Microsoft Teams.
 - `integrations/netbox.mdx`: NetBox.
@@ -34,7 +37,7 @@ Each draft is tagged Draft, is noindex, and contains a visible review note. Rema
 ## Validation needed
 
 1. Deployment owner: see the September 27 discovery review for the now-documented AWS setup path and the remaining production requirements and validation checks.
-2. Product owner: match labels and flows to the customer-deployed version. Current source labels are Chat, Change Management, CVEs, Running config, and Topology v2. "Ask REAP" is a search keyword.
+2. Product owner: match labels and flows to the customer-deployed version. Use the user-approved capability page titles. Procedures retain source labels such as Incidents, Chat, Change Management, CVEs, Running config, Topology v2, Path Tracer, Flow Analytics, and Telemetry / Telemetry Explorer. "Ask REAP" is a search keyword.
 3. Integration owners: complete and test Teams, ServiceNow, and NetBox procedures, permissions, dependencies, expected results, and failure recovery.
 4. Security owner: validate deployment-specific data categories and link approved architecture or data-flow material when available.
 5. Customer success: validate the first-question quickstart end to end.
@@ -189,3 +192,31 @@ Verification:
 - Engineering repositories and the production docs branch were not changed.
 
 Limits remain explicit: this is a reviewed documentation preview, not proof of a tested customer deployment. Production requirements and the recorded behavior questions above still need confirmation. Teams, ServiceNow, NetBox, and Users and permissions still contain incomplete draft guidance. Do not treat a successful documentation build as validation of those product workflows.
+
+## Capability scope update: September 28, 2026
+
+The current Capabilities section contains exactly the ten pages requested by the user, in their requested order: Incident analysis; Topology and Path Tracer; Runbooks; Inventory; Config drift; Change management; Chat; CVE analysis; Flow Analytics; Monitoring. This supersedes the earlier combined Inventory/topology page and capability overview. Capabilities remains flat.
+
+Changes:
+- Split Inventory from Topology and Path Tracer; added the source-reviewed Path Tracer procedure.
+- Renamed and moved Incidents, CVEs, and Running config to the requested capability names and canonical paths. Config drift explains both snapshot differences over time and startup versus running differences where available.
+- Added Flow Analytics and Monitoring with functionality, value, practical examples, prerequisites, instructions, and interpretation limits.
+- Retained the established Runbooks, Chat, and Change management functionality-first guides and updated related links.
+- Removed the old capability overview and combined page. Added permanent redirects for all five replaced URLs. Updated the landing page, setup continuations, related guides, and documentation update entry.
+
+New and refreshed sources: read-only reap-ui at `d3d322fba4f9c727c5c6071ed596875150c75f31`: ShellPage, AppRoutes, InventoryPage, DeviceRunningConfigPage, topology/TopologyV2Page, topology/TopologyPathTracerPage, FlowAnalyticsPage, and GrafanaExplorerPage. Existing source-reviewed Runbooks, Chat, incident, change-management, and CVE behavior remains as documented in the earlier reviews.
+
+Accuracy limits:
+- Path Tracer documents available endpoint, traffic selector, evidence-level, time, and clarification controls. A requested evidence level is not a guarantee of available evidence; a graph is not proof of application health or a live packet test.
+- Flow Analytics reports observed exporter records. Multiple sources may observe the same traffic; sampling does not establish completeness, protocol/port service names are not application identification, and chart gaps do not establish zero traffic. The chart's selected-range summary does not filter other panels.
+- Monitoring uses the product's Telemetry navigation and Telemetry Explorer workspace. Organization trend time ranges are distinguished from the latest Signals, Features, and Conditions views. Missing data does not establish health.
+- All ten capability guides retain Draft/noindex and a visible review note. The site now has 20 technical drafts. Source review is not evidence of deployment to every customer release.
+
+Verification:
+- Exactly ten capability files exist and all ten appear in the requested sidebar order, with no additional overview or hidden legacy capability pages.
+- All 28 saved MDX bodies match the prepared copy after formatting normalization. All 118 internal page, section, and image links resolve; native component tags are balanced.
+- Five capability redirects and the existing quickstart redirect are present with valid destinations.
+- Mintlify builds succeeded for content commit `8439e2905322223ebbd57a256334dbf523f03c19` and redirect commit `cd654a3c0e3c67b89087954590f2ed6f3f70f5de`.
+- Rendered landing page, capability sidebar, and the new/separated capability routes were inspected. The Slack guide is unchanged in the GitHub comparison.
+
+Before customer publication, validate Path Tracer against representative endpoints and returned evidence, Flow Analytics against supported exporter data, and Monitoring against reporting devices and condition states. The earlier deployment and integration publication checks still apply. No engineering repository or production docs changes were made.
