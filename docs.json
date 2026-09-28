@@ -31,13 +31,9 @@
       {
         "group": "Capabilities",
         "pages": [
-          "capabilities/inventory-and-topology",
           "capabilities/chat",
-          "capabilities/incidents",
           "capabilities/runbooks",
           "capabilities/change-management",
-          "capabilities/cves",
-          "capabilities/configuration-history",
           "capabilities/incident-analysis",
           "capabilities/topology-and-path-tracer",
           "capabilities/inventory",
