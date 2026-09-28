@@ -37,6 +37,7 @@
   font-weight: 650;
   letter-spacing: -.035em;
   line-height: 1.13 !important;
+  white-space: normal !important;
   color: #ffffff !important;
 }
 .reap-home .reap-hero-line { display: block; }
