@@ -75,16 +75,7 @@
     "dark": "/logo/reap.svg"
   },
   "navbar": {
-    "links": [
-      {
-        "href": "/",
-        "label": "Documentation"
-      },
-      {
-        "label": "Support",
-        "href": "/support/contact"
-      }
-    ],
+    "links": [],
     "primary": {
       "type": "button",
       "label": "REAP website",
