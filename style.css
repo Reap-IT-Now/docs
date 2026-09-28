@@ -39,7 +39,7 @@
   line-height: 1.13 !important;
   color: #ffffff !important;
 }
-.reap-home .reap-hero h2 > span { display: block; }
+.reap-home .reap-hero-line { display: block; }
 .reap-home .reap-hero-copy > p {
   margin: 0 !important;
   color: #d0e2ea;
