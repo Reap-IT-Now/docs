@@ -101,3 +101,9 @@
 @media (prefers-reduced-motion: reduce) {
   .reap-home .reap-capability-link, .reap-home .reap-primary-link { transition: none; }
 }
+
+/* Hide the requested header control without changing preview authentication. */
+#navbar .logout-link,
+#navbar li:has(> .logout-link) {
+  display: none !important;
+}
