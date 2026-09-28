@@ -164,6 +164,31 @@
       "source": "/quickstart",
       "destination": "/getting-started/quickstart",
       "permanent": true
+    },
+    {
+      "source": "/capabilities/overview",
+      "destination": "/capabilities/incident-analysis",
+      "permanent": true
+    },
+    {
+      "source": "/capabilities/inventory-and-topology",
+      "destination": "/capabilities/inventory",
+      "permanent": true
+    },
+    {
+      "source": "/capabilities/incidents",
+      "destination": "/capabilities/incident-analysis",
+      "permanent": true
+    },
+    {
+      "source": "/capabilities/cves",
+      "destination": "/capabilities/cve-analysis",
+      "permanent": true
+    },
+    {
+      "source": "/capabilities/configuration-history",
+      "destination": "/capabilities/config-drift",
+      "permanent": true
     }
   ],
   "search": {
