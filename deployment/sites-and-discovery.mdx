@@ -6,99 +6,148 @@ noindex: true
 ---
 
 <Note>
-  **Draft guide.** Reviewed against the supplied discovery walkthrough and REAP UI source. Deployment-specific requirements still need confirmation before customer publication.
+  **Draft guide.** Reviewed against the discovery walkthrough, updated UI screens, and REAP UI source. Deployment-specific requirements still need confirmation before customer publication.
 </Note>
 
-A site organizes the network you want to discover. Discovery identifies devices and gathers the information you can inspect in Inventory and use in REAP workflows.
+A site organizes a network location or scope. Discovery identifies its devices and gathers information you can inspect in **Inventory**, explore in **Topology**, and query in **Chat**.
 
-Create the site first. After you attach connectivity and assign credentials, return here to create a discovery job and start a run. This guide covers an **OnPrem** site.
+Create the site first, prepare its connectivity and credentials, then create a discovery job and start a run. This guide covers an **OnPrem** site, including when its connector is hosted on AWS EC2.
 
 ## Create a site
 
-1. Select the correct **Organization**.
-2. Open **Connectivity & Sites**, select **Sites**, and select **\+** to open **Create Site**.
-3. Enter a **Name** and set **Site type** to **OnPrem**.
-4. Add the address, city, state, postal code, country, **Notes**, or **Labels** if useful for your team.
-5. Select **Create Site** and confirm the site appears in the list.
+1. Select the correct organization in the organization dropdown.
+2. Open **Connectivity & Sites > Sites**.
+3. Select the **plus (+)** icon to open **Create Site**.
+4. Complete the fields below, then select **Create Site**.
+5. Confirm the site appears in the **Sites** table and open it.
+
+| Field | What to enter or choose |
+| --- | --- |
+| **Name** | Required. Enter the location or scope your team recognizes, such as `London office`. |
+| **Site type** | Select **OnPrem** for this workflow. Hosting the connector in AWS does not make the site an **AWS Cloud** site. |
+| **Address line 1** | Optional. Enter the site's street address. |
+| **Address line 2** | Optional. Add a building, floor, or suite. |
+| **City** | Optional. Enter the site's city. |
+| **State** | Optional. Enter its state or province. |
+| **Postal code** | Required for an **OnPrem** site in the current form. Enter the site's postal code. |
+| **Country** | Required for an **OnPrem** site in the current form. Enter the site's country. |
+| **Notes** | Optional. Add context your operations team needs. |
+| **Labels** | Optional. Select **+ Add label**, then enter a key and value for each label. Use **Remove** to remove a row. |
+
+To update the site later, open its **Details** tab, edit the relevant fields, and select the **Save site** disk icon at the top right.
+
+## Find the right site tab
+
+The site drawer keeps configuration and results together.
+
+| Tab | Use it for |
+| --- | --- |
+| **Details** | Review and edit the site's information. |
+| **Cockpit** | Open the site's operational view. |
+| **Topology** | Inspect discovered connections and interface detail. |
+| **Discover** | Configure discovery jobs, start runs, and inspect their results. |
+| **Inventory** | Check the devices and attributes collected for this site. |
+| **Clusters** | Verify the site's cluster attachment. |
+| **Connectors** | Review the connectors associated with the site. |
 
 ## Prepare the site for discovery
 
 Before you create a job:
 
 - [Create a cluster, attach this site, and deploy a connector](/deployment/clusters-and-connectors).
-- Confirm the connector can reach REAP and the intended management network, including the return path.
+- Confirm the connector is **online** and can reach the target management network, including the return path.
 - [Create device credentials and enabled assignments](/deployment/device-credentials) for the target device groups.
 - Agree on the initial seed management addresses or CIDR ranges, and identify known devices to check afterward.
 
 ## Create a discovery job
 
-A **job** saves the discovery settings. A **run** executes those settings and records the result.
+A **job** saves the discovery settings. A **run** executes those settings and records the result. The **Discover** tab has a separate table and **plus (+)** icon for each.
 
 <Steps>
-  <Step title="Open the site's discovery workspace">
-    In **Connectivity & Sites**, open your site and select **Discover**. In **Discovery Jobs**, select **\+**.
+  <Step title="Open Discovery Jobs">
+    Go to **Connectivity & Sites > Sites**, open your site, and select **Discover**. In **Discovery Jobs**, select the **plus (+)** icon.
   </Step>
-  <Step title="Confirm the site and cluster">
-    Verify **Site**, the inherited **Connector cluster**, and **Status**. Use **Active** for this job.
+  <Step title="Complete the job fields">
+    | Field | What to enter or choose |
+    | --- | --- |
+    | **Site** | Confirm the intended site. It is fixed when opening the form from that site's drawer. |
+    | **Connector cluster** | Review the inherited cluster. This field is read-only. If it is missing or wrong, correct the site's cluster attachment and reopen the form. |
+    | **Status** | Select **Active** for the job you intend to run. **Paused** is also available for a job you want to keep paused. |
+    | **Seed devices or hosts** | Enter approved seed management addresses, one per line or separated by commas. For example, `10.42.0.1` and `10.42.0.2`, replaced with addresses from your own network. |
+    | **CIDR ranges (optional)** | Enter approved subnets in CIDR notation, such as `10.42.0.0/24`, one per line or separated by commas. These can provide additional targets when seeds do not cover the site. |
+    | **Schedule** | Select **Manual** for your first discovery. See [Schedule options](#schedule-options) before setting up repeated discovery. |
 
-    The cluster comes from the site's attachment. If it is missing or incorrect, correct the association under the cluster's **Sites** tab before continuing.
+    At least one seed or CIDR is required for this OnPrem workflow. For subnet discovery, enter your approved subnet under **CIDR ranges (optional)** and leave seeds empty if appropriate. The example addresses are illustrative, not required values or a guaranteed discovery boundary.
   </Step>
-  <Step title="Enter discovery targets">
-    Supply approved addresses under **Seed devices or hosts**, subnet ranges under **CIDR ranges (optional)**, or both. Use one entry per line or comma-separated entries.
+  <Step title="Save and check the job">
+    Select the **Save job** disk icon at the top right. Confirm the saved row in **Discovery Jobs**, including **Schedule**, **Scope**, **Status**, and **Updated**.
 
-    At least one seed or CIDR is required for this OnPrem workflow. For subnet discovery, enter your approved subnet in the CIDR field; you can leave the seeds empty.
-  </Step>
-  <Step title="Save a manual job">
-    Under **Schedule**, select **Manual** for your first run, then select the save icon in the top-right corner.
-
-    Confirm the job appears in **Discovery Jobs**. The form also offers **Recurring**; first verify your discovery scope and results with a manual run.
+    To change it later, select the pencil icon under **Actions**, update the settings, and save again.
   </Step>
 </Steps>
 
-<Frame caption="Example discovery settings: the site's cluster, a CIDR target, and a Manual schedule. Replace the lab subnet with your approved targets.">
-  ![Discovery job form with Site, inherited Connector cluster, Active status, seed and CIDR fields, and Manual schedule](/images/deployment/discovery-job.png)
-</Frame>
-
 <Note>
-  Saving a manual job does not start discovery. Start a separate run using the steps below.
+  Saving a manual job does not start discovery. Use **Discovery Runs** to start a separate run.
 </Note>
+
+## Schedule options
+
+Use **Manual** until you have verified the discovery scope and results. To set up repeated discovery, edit the job and select **Recurring**.
+
+| Recurring field | What to choose |
+| --- | --- |
+| **Frequency** | Choose **Hourly**, **Daily**, or **Weekly**. |
+| **Minute past the hour** | For **Hourly**, choose an available minute value. |
+| **Time of day** | For **Daily** or **Weekly**, enter the intended run time. |
+| **Day of week** | For **Weekly**, select the day. |
+| **Timezone** | Select the timezone in which the schedule should run. Check it before saving. |
+
+Select the **Save job** disk icon and review the saved schedule. If your deployment also shows **Auto**, confirm its trigger behavior with your REAP administrator before choosing it; the manual procedure above does not require it.
 
 ## Start and monitor a run
 
 1. Select the saved job in **Discovery Jobs**.
-2. In **Discovery Runs**, select **\+** to open **Start discovery run**.
-3. Review the selected job, **Site**, **Seeds**, **Targets**, and **Schedule**.
+2. In **Discovery Runs**, select the **plus (+)** icon to open **Start discovery run**.
+3. In **Job**, confirm or select the intended saved job. Review the displayed **Site**, **Seeds**, **Targets**, and **Schedule**. These come from the job; edit the job first if they are incorrect.
 4. Select **Start Run**.
-5. Open the run details and monitor its status, progress, and live events.
+5. In **Discovery Runs**, use the refresh icon to update the list. Check **Status**, **Started**, **Duration**, **Devices**, and **Links**.
+6. Select the eye icon under **Actions** to open the run details and inspect progress and events.
 
-The run shows **Devices discovered**, **Devices updated**, **Unreachable**, and **Links discovered**. If you need to interrupt an active run, use **Stop run**, then review its state and available results before deciding whether to retry.
+The detailed run view includes **Devices discovered**, **Devices updated**, **Unreachable**, and **Links discovered**. If you need to interrupt an active run, use **Stop run**, then review its state and available results before deciding whether to retry.
 
 ## Verify the results
 
-A successful run reports **succeeded** and **100% complete**. Check the details as well as the final state:
+A run marked **succeeded** has finished successfully, but it can still report zero devices or links. Verify the outcome against the devices you expected.
 
-- Review reported failures or unreachable devices.
-- Open the site's **Inventory** and find devices you expected to discover.
-- Confirm device identities, management addresses, roles, vendors, and models against your known environment.
-- Compare the resulting inventory with the approved discovery scope.
-- Open **Topology** to inspect available relationships. Its view can take additional time to populate after the discovery run completes.
+<Steps>
+  <Step title="Check the run details">
+    Review the final status, counters, and events. Investigate reported failures, unreachable devices, and unexpected zero results.
+  </Step>
+  <Step title="Check the site's Inventory">
+    Open **Inventory** in the same site drawer. Find a known device and compare **Device**, **Mgmt address**, **Role**, **Vendor**, **Model**, **OS**, and **Serial number** with the information you expect, where available.
 
-Use the run details and Inventory as the completion checks. A summary device counter alone does not establish that all expected devices were discovered.
+    Check all intended device groups before expanding discovery. Neither a summary count nor a successful run alone establishes that all expected devices were found.
 
-<Frame caption="A completed example run shows its status and discovery counters. Your counts depend on your network and discovery results.">
-  ![Discovery run showing succeeded status, 100 percent completion, and device, unreachable, and link counters](/images/deployment/discovery-results.png)
-</Frame>
+    The **CMDB Relation View** above Inventory is a separate integration view. A message that no CMDB-capable connection is configured does not prevent you from reviewing discovered devices in the Inventory table below it.
+  </Step>
+  <Step title="Inspect the site's Topology">
+    Select **Topology** to inspect the available relationships. Enable **Show interfaces** for port-level detail. Use the plus and minus zoom controls or the expand icon to inspect the view; **Reset layout** resets the graph layout.
+
+    Topology can take additional time to populate after a run completes. If it remains incomplete, compare the run's link results with the relationships you expected.
+  </Step>
+</Steps>
 
 ## Troubleshooting
 
 | Symptom | What to check |
 | --- | --- |
+| Site cannot be created | Enter **Name**, choose **OnPrem**, and supply **Postal code** and **Country**. Resolve any field errors. |
 | Job cannot be saved because a cluster is missing | Attach the site to the intended cluster, then reopen the job form. |
-| A saved manual job has no results | Start a run from **Discovery Runs**; job creation alone does not execute it. |
-| Devices are unreachable | Connector readiness, management addresses, routing in both directions, and protocol access rules. |
-| Authentication errors appear | Credential values, device permissions, enabled assignments, scopes, and filters. |
-| Expected devices are missing | Job targets, run events, credential coverage for each vendor, and connector reachability. |
-| Inventory is populated but topology is incomplete | Allow processing time, refresh, and inspect the run's link results. If it remains incomplete, contact support. |
+| A saved manual job has no results | Start a run using the **plus (+)** icon in **Discovery Runs**. |
+| Run succeeded but expected devices are missing | Check the saved targets, run events, enabled credential assignments for each device group, and connector reachability. |
+| Devices are unreachable | Check management addresses, routing in both directions, and protocol access rules. |
+| Authentication errors appear | Check credential values, device permissions, assignment scopes, and filters. |
+| Inventory is populated but topology is incomplete | Allow processing time, reopen the view, and inspect the run's link results. If it remains incomplete, contact support. |
 
 When [contacting support](/support/contact), include the site, job and run identifiers, time, expected device scope, and relevant errors. Exclude credentials and bootstrap material.
 

@@ -44,7 +44,7 @@ Each draft is tagged Draft, is noindex, and contains a visible review note. Rema
 
 ## Publication workflow
 
-For each guide, replace editorial notes with verified instructions and screenshots, test its expected outcome, remove Draft/noindex, and verify links. Publish only completed guides. Keep Capabilities flat until multiple meaningful clusters of complete content emerge; do not create empty job-based groups.
+For each guide, replace editorial notes with verified instructions, test its expected outcome, remove Draft/noindex, and verify links. Publish only completed guides. Keep Capabilities flat until multiple meaningful clusters of complete content emerge; do not create empty job-based groups.
 
 The public main branch remains the previously published Slack documentation until this review edition is ready.
 
@@ -72,7 +72,7 @@ No files in REAP engineering repositories were modified.
 
 - Run the quickstart against a supported customer deployment; a rendered guide is not evidence that deployment steps work.
 - Verify Slack installation, routing, individual linking, ticket assignment, and runbook results end to end. The supplied Word guide is the content source, not a substitute for a live integration test.
-- Add verified screenshots where they resolve ambiguous UI steps.
+- Keep Getting started and Deployment screenshot-free. Resolve ambiguous steps with exact control names, field tables, and input guidance.
 - Validate narrow-screen navigation and layouts on actual target devices.
 - Establish the custom documentation domain separately; this work does not configure docs.reapitnow.ai.
 - Treat the security page as an entry point to published policies, not a field-level collection matrix. Confirm data categories, destinations, retention/deletion, residency, and AI processing/subprocessor details before making deployment-specific claims.
@@ -244,3 +244,33 @@ Verification:
 - Inspected the home page and capability directory in light and dark mode. Confirmed the Capabilities card jumps to the directory and the Runbooks directory entry opens its guide. Corrected headline wrapping and spacing in Mintlify's rendered heading wrapper.
 - Layout CSS is scoped to the documentation home. Responsive breakpoints are provided; this review did not test actual mobile devices.
 - No engineering repository, production branch, or custom-domain configuration was changed. Existing technical publication checks remain outstanding.
+
+
+## Screenshot-free setup review — September 28, 2026
+
+This update supersedes the September 27 screenshot-based presentation for Getting started and Deployment. All five screenshot embeds and their captions have been removed from these pages. Uploaded screens are evidence only; the seven setup pages now use click paths, steps, field tables, and explicit outcome checks.
+
+Evidence reviewed:
+
+- The complete 121-line REAP-Discovery-Transcript(1).txt, covering the full 10-minute-30-second walkthrough, reconciled with the prior recording review above.
+- All twelve newly supplied UI screens: Connectivity & Sites; Create Cluster; cluster Details, Sites before/after attachment, and Connectors; connector Details and Bootstrap; site Discover, discovery job editing, Inventory, and Topology.
+- Read-only Reap-IT-Now/reap-ui at `0dda27bc650375b330c03981ff9a80f711a92909`: ConnectivitySitesPage.tsx, siteForm.ts, DiscoveryJobDrawer.tsx, DiscoveryRunDrawer.tsx, CredentialWizard.tsx, and AssignmentDrawer.tsx. The earlier DiscoveryJobDrawer at `62b4546c51fa84f71f7b16d8d1363e9876653d91` was also checked for the schedule discrepancy.
+
+Corrections and coverage:
+
+- OnPrem creation requires Name, Postal code, and Country in current source. Address line 1/2, City, State, Notes, and Labels remain optional; the old guide incorrectly grouped all location fields as optional.
+- Cluster creation/editing includes Name, Description, key/value Labels, the normally disabled internal-inspection setting, Save, and reported status fields. Site attachment requires Attach site and confirmation of the resulting row.
+- Connector creation starts from the cluster's Connectors plus icon, with Cluster preselected/locked; the global Connectors route remains documented. Editing, all fields, Cloud-init/JSON download, and the separate Reset enrollment recovery action are covered.
+- AWS deployment retains the recorded sequence but uses Bootstrap > Cloud-init. No lab AMI, sizing, security group, script, customer identity, UUID, or observed customer IP is published as a requirement.
+- Credentials now include common fields, conditional SSH authentication fields, SNMP fields, assignment fields, scopes, and exact filter labels/input formats. Saving credentials and assignments remains distinct.
+- Jobs and runs have separate plus icons and procedures. Job fields, recurring fields, editing, Save job, run selection, Start Run, refresh, and View run are documented.
+- A succeeded run may report zero devices/links. Verification checks expected Inventory attributes and Topology rather than status/counters alone. CMDB Relation View is separate from the discovered Inventory table.
+- Quickstart, requirements, concepts, and setup overview follow the same sequence. Existing anchors and the ten-capability navigation are preserved. The quickstart still ends with a network question and evidence.
+
+Remaining version-specific checks:
+
+- The supplied discovery screenshot shows Manual, Recurring, and Auto. Both inspected source versions expose Manual and Recurring only. The guide acknowledges Auto when present and directs readers to confirm its trigger behavior; it does not invent an Auto workflow. Validate this against the deployed build before final publication.
+- Recurring input details and required site location fields are grounded in current UI source because those forms/states are not shown in the new screenshots. Confirm them against the customer-deployed version.
+- Supported AMI, instance sizing, network endpoints/ports, privileges, and a live end-to-end onboarding test remain required before removing the existing Draft metadata. This update is a source/documentation audit, not a connector deployment test.
+
+No engineering repository, production branch, capability list, or custom-domain configuration is changed by this update.

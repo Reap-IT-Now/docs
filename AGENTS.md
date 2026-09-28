@@ -20,6 +20,8 @@ Draft technical pages use tag: Draft, noindex: true, and a visible review note. 
 Before promotion, verify instructions against the deployed product, replace review notes with customer instructions, verify expected outcomes, and remove draft metadata. See CONTENT-REVIEW.md for this edition's source gaps.
 
 ## Design and validation
+Getting started and Deployment pages must remain screenshot-free. Use exact click paths, numbered steps, field tables, required/optional guidance, and expected results. Treat supplied screenshots as source evidence only. New UI evidence supersedes older screenshot-based instructions; record version conflicts rather than inventing behavior.
+
 Use native Mintlify components and configuration. Keep custom CSS scoped to the landing page through .reap-home. Preserve logo, favicon, responsive behavior, keyboard focus, and light/dark themes.
 
 Use Mintlify navigation tools and MDX validation. Check all internal links, preserve the existing Slack guide, inspect the rendered landing page and a guide, and confirm a successful Mintlify build before delivery.
