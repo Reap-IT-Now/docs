@@ -3,7 +3,7 @@
 This repository is the standalone Mintlify documentation site for REAP. Only change documentation and documentation assets here.
 
 ## Structure
-Keep the main navigation to Getting started, Deployment, Capabilities, Integrations, and Security and administration. Keep Capabilities flat. Include exactly these ten pages in this order unless the user changes the product scope: Incident analysis; Topology and Path Tracer; Runbooks; Inventory; Config drift; Change management; Chat; CVE analysis; Flow Analytics; Monitoring. Do not add a separate Capabilities overview page or combine Inventory with Topology. Support and What's new are utility links.
+Keep the main navigation to Getting started, Deployment, Capabilities, Integrations, and Security and administration. Keep Capabilities flat. Include exactly these ten pages in this order unless the user changes the product scope: Incident analysis; Topology and Path Tracer; Runbooks; Inventory; Config drift; Change management; Chat; CVE analysis; Flow Analytics; Monitoring. Do not add a separate Capabilities overview page or combine Inventory with Topology. Support is a utility link. The root documentation home is the primary entry point, with a quickstart path and direct links to the ten capabilities, integrations, and security. Do not add a What's new or changelog page unless the user requests it.
 
 The quickstart leads from organization access through connectivity, credentials, site discovery, and a first network question with evidence. Link to canonical deployment guides rather than duplicating their procedures.
 
