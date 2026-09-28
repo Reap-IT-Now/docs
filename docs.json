@@ -31,13 +31,13 @@
       {
         "group": "Capabilities",
         "pages": [
-          "capabilities/chat",
-          "capabilities/runbooks",
-          "capabilities/change-management",
           "capabilities/incident-analysis",
           "capabilities/topology-and-path-tracer",
+          "capabilities/runbooks",
           "capabilities/inventory",
           "capabilities/config-drift",
+          "capabilities/change-management",
+          "capabilities/chat",
           "capabilities/cve-analysis",
           "capabilities/flow-analytics",
           "capabilities/monitoring"
