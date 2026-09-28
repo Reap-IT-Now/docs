@@ -1,0 +1,67 @@
+---
+title: "Monitoring"
+description: "Review collected telemetry, device health, and evaluated conditions across your organization, sites, and devices."
+keywords:
+  - "Telemetry"
+  - "Telemetry Explorer"
+  - "signals"
+  - "features"
+  - "conditions"
+  - "device health"
+tag: "Draft"
+noindex: true
+---
+
+Monitoring helps you understand the operational state of your network through the telemetry REAP collects. You can start with an organization view, narrow the scope to a site or device, and inspect the available measurements and evaluated conditions.
+
+This helps your team see where attention is needed and gather context before investigating an incident. Instead of treating a symptom in isolation, you can compare it with device health, interface behavior, and protocol state where those signals are available.
+
+## What you can do
+
+- **Review the organization.** Inspect available health summaries, telemetry coverage, and trends.
+- **Focus on a site or device.** Narrow the scope and category to the part of the network relevant to your question.
+- **Follow measurements into conditions.** Inspect collected signals, derived features, and evaluated conditions.
+- **Check freshness and coverage.** Review available timestamps and reporting information before interpreting a value.
+
+The workspace is called **Telemetry Explorer** and is reached through **Telemetry** in the product navigation.
+
+## Understand the monitoring views
+
+| View | What it shows | How it helps |
+| --- | --- | --- |
+| Signals | Collected telemetry for the selected scope and category. | Inspect the available measurements behind an investigation. |
+| Features | Values derived from the collected signals. | Examine the processed context used for evaluation. |
+| Conditions | Evaluated condition states based on the derived features. | Find conditions that need closer review and inspect their context. |
+
+Available categories include device health, interfaces, and network protocols. The signals and charts shown depend on the devices, collection coverage, and selected scope.
+
+## Example: investigate a busy device
+
+Start with the organization view to find a device with elevated CPU measurements. Switch to its site and device, inspect the available device health signals and features, and review any relevant conditions.
+
+Check the measurement times and reporting coverage, then use [Chat](/capabilities/chat) or [Incident analysis](/capabilities/incident-analysis) to continue with a clear device and time scope.
+
+## How to use Monitoring
+
+<Note>
+  **Draft guide.** The functionality is grounded in the product source. Validate these steps against your deployed REAP version before publishing this guide to customers.
+</Note>
+
+Confirm that the relevant devices are discovered and telemetry is being collected. Inventory presence alone does not establish that every signal is available.
+
+1. Open **Telemetry** to reach **Telemetry Explorer**.
+2. Set **Scope** to **Organization** for the organization summary. Choose the relevant **Time range** and review the available coverage, health, and trend information.
+3. To investigate a particular area, change **Scope** to **Site and Device**. Select **Site**, then optionally **Role/Layer** and **Device**.
+4. Select **Category** and choose **Signals**, **Features**, or **Conditions**.
+5. Narrow the results with **Signal Key**, **Feature Key**, or **Condition Key** as appropriate. For conditions, use **State** to view **ON only**, **OFF only**, or **ON + OFF**.
+6. Review the available values, timestamps, and related charts. Set **Refresh** to control how often the view requests updated information.
+
+## Understand the result
+
+The organization time range applies to its trend views; the Signals, Features, and Conditions views describe the latest available data for their scope. Check the displayed timestamps rather than assuming every panel represents the same instant.
+
+An absent value, unavailable chart, or missing condition can indicate a collection or coverage gap. It does not establish that a device is healthy. Use monitoring evidence alongside incident context and other checks before deciding what action to take.
+
+## Related guides
+
+[Incident analysis](/capabilities/incident-analysis) · [Flow Analytics](/capabilities/flow-analytics) · [Chat](/capabilities/chat)

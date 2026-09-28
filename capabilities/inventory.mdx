@@ -1,0 +1,51 @@
+---
+title: "Inventory"
+description: "Find discovered devices and inspect the identity, site, and collected details behind your investigation."
+keywords:
+  - "devices"
+  - "device inventory"
+  - "discovery"
+tag: "Draft"
+noindex: true
+---
+
+Inventory brings discovered device records into one place so you can establish what is in your network. You can find a device, confirm its identity and site, and inspect the information REAP has collected about it.
+
+This gives your team a starting point for everyday network work. Before investigating a symptom or planning a change, you can confirm that you are working with the intended device and follow its available configuration, port, endpoint, and vulnerability details.
+
+## What you can do
+
+- **Find the right device.** Search by name, vendor, model, or IP address.
+- **Confirm its identity and location.** Check the device's site, management address, and available hardware and software details.
+- **Inspect collected context.** Review available ports, attached endpoints, configuration, and vulnerability assessments.
+- **Continue the investigation.** Use the device identity and site to scope a Chat question, explore topology, or review configuration changes.
+
+Inventory reflects the discovery and collection data available to REAP. A record gives you collected context; check its freshness before treating it as the device's current state.
+
+## Example: identify a branch switch
+
+When a team reports a problem with a branch switch, search for its hostname or management address. Confirm the site and device identity, then inspect the ports and endpoints available in its record.
+
+You can use that scope to ask [Chat](/capabilities/chat) a focused question or explore the surrounding network with [Topology and Path Tracer](/capabilities/topology-and-path-tracer).
+
+## How to use Inventory
+
+<Note>
+  **Draft guide.** The functionality is grounded in the product source. Validate these steps against your deployed REAP version before publishing this guide to customers.
+</Note>
+
+Complete [site discovery](/deployment/sites-and-discovery) and verify that an expected device appears.
+
+1. Open **Inventory**.
+2. Search by name, vendor, model, or IP address.
+3. Open the device record and confirm its identity, site, and management address.
+4. Review the details available for your question.
+5. Follow the configuration or vulnerability assessment links when you need the underlying evidence.
+
+## Understand the result
+
+A missing device can indicate a discovery or collection gap. Check the discovery run, connectivity, and credential coverage before concluding that the device does not exist.
+
+## Related guides
+
+[Topology and Path Tracer](/capabilities/topology-and-path-tracer) · [Config drift](/capabilities/config-drift) · [CVE analysis](/capabilities/cve-analysis)
